@@ -8,22 +8,32 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.jiaying.workstation.R;
+import com.jiaying.workstation.utils.SetTopView;
 
 /**
- * activity基类
+ * 护士分配浆机
  */
-public abstract class BaseActivity extends AppCompatActivity {
+public class PulpMachineForNurseActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initVariables();
-        initView();
-        loadData();
+
     }
 
+    @Override
+    public void initView() {
+        setContentView(R.layout.activity_pulp_machine_for_nurse);
+        new SetTopView(this, R.string.title_activity_pulp_machine_for_nurse, true);
+    }
 
-    public abstract  void initView();
-    public abstract  void loadData();
-    public abstract  void initVariables();
+    @Override
+    public void loadData() {
+
+    }
+
+    @Override
+    public void initVariables() {
+
+    }
 }

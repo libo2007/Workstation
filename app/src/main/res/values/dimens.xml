@@ -3,4 +3,18 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_size_big">36dp</dimen>
+    <dimen name="text_size_midle">32dp</dimen>
+    <dimen name="text_size_small">24dp</dimen>
+    <dimen name="text_size_small_more">20dp</dimen>
+    <dimen name="comm_title_height">70dp</dimen>
+    <dimen name="comm_title_margin_right">14dp</dimen>
+    <dimen name="btn_margin">20dp</dimen>
+    <dimen name="btn_padding">10dp</dimen>
+    <dimen name="btn_height">44dp</dimen>
+    <dimen name="btn_inner_padding">5dp</dimen>
+    <dimen name="login_edit_padding_left">12dp</dimen>
+    <dimen name="edit_height">40dp</dimen>
+    <dimen name="radius">5dp</dimen>
+    <dimen name="line_width">1dp</dimen>
 </resources>

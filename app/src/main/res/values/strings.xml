@@ -3,4 +3,12 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_base">BaseActivity</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="jiandang">建档</string>
+    <string name="dengji">登记</string>
+    <string name="tijian">体检</string>
+    <string name="caijiang">采浆</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_pulp_machine_for_nurse">选择登录护士</string>
 </resources>

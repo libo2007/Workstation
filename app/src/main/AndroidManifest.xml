@@ -19,18 +19,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.BaseActivity"
-            android:label="@string/title_activity_base"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/title_activity_main"
-            android:parentActivityName=".activity.BaseActivity"
             android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jiaying.workstation.activity.BaseActivity" />
+        </activity>
+        <activity
+            android:name=".activity.PulpMachineForNurseActivity"
+            android:label="@string/title_activity_pulp_machine_for_nurse"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 
