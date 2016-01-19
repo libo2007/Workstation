@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/comm_title_height"
+    android:background="@color/main_color" >
+
+    <ImageView
+        android:id="@+id/back_img"
+        android:layout_width="@dimen/comm_title_height"
+        android:layout_height="@dimen/comm_title_height"
+        android:layout_centerVertical="true"
+        android:scaleType="center"
+        android:src="@mipmap/jiantou_press" />
+
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="标题"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_midle" />
+
+</RelativeLayout>

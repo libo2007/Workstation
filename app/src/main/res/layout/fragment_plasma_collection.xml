@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/txt_grey"
+    android:orientation="vertical"
+    tools:context="com.jiaying.workstation.com.jiaying.workstation.fragment.PlasmaCollectionFragment"
+    android:gravity="center">
+
+    <!-- TODO: Update blank fragment layout -->
+    <Button
+        android:layout_marginLeft="@dimen/btn_margin"
+        android:layout_marginRight="@dimen/btn_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/main_color"
+        android:textSize="@dimen/text_size_midle"
+        android:text="查看护士登录采浆设备情况" />
+    <Button
+        android:id="@+id/nurse_login_btn"
+        android:textSize="@dimen/text_size_midle"
+        android:layout_marginTop="@dimen/btn_margin"
+        android:layout_marginLeft="@dimen/btn_margin"
+        android:layout_marginRight="@dimen/btn_margin"
+        android:textColor="@color/main_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="护士登录浆机" />
+    <Button
+        android:textSize="@dimen/text_size_midle"
+        android:layout_marginTop="@dimen/btn_margin"
+        android:layout_marginLeft="@dimen/btn_margin"
+        android:layout_marginRight="@dimen/btn_margin"
+        android:textColor="@color/main_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="献浆员献浆" />
+</LinearLayout>
