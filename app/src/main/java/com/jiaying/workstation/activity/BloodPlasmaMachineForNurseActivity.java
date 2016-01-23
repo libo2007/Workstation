@@ -13,7 +13,7 @@ import com.jiaying.workstation.utils.SetTopView;
 /**
  * 护士分配浆机
  */
-public class PulpMachineForNurseActivity extends BaseActivity {
+public class BloodPlasmaMachineForNurseActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

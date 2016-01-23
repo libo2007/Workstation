@@ -10,12 +10,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.jiaying.workstation.R;
-import com.jiaying.workstation.activity.PulpMachineForNurseActivity;
+import com.jiaying.workstation.activity.BloodPlasmaMachineForNurseActivity;
 
 /**
  * 采浆
  */
-public class PlasmaCollectionFragment extends Fragment {
+public class BloodPlasmaCollectionFragment extends Fragment {
     private Button nurse_login_btn;
 
     @Override
@@ -36,7 +36,7 @@ public class PlasmaCollectionFragment extends Fragment {
     private class goNuserLoginListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            Intent it = new Intent(getActivity(), PulpMachineForNurseActivity.class);
+            Intent it = new Intent(getActivity(), BloodPlasmaMachineForNurseActivity.class);
             startActivity(it);
         }
     }

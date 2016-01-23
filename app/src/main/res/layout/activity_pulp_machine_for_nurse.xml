@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.jiaying.workstation.activity.PulpMachineForNurseActivity"
+    tools:context="com.jiaying.workstation.activity.BloodPlasmaMachineForNurseActivity"
   >
 
     <include layout="@layout/comm_app_title" />
