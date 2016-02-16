@@ -10,5 +10,10 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_pulp_machine_for_nurse">选择登录护士</string>
+    <string name="title_activity_pulp_machine_for_nurse">选择登录身份</string>
+    <string name="title_activity_pulp_machine_select">选择登录浆机</string>
+    <string name="title_activity_pulp_machine_select_result">浆机分配情况
+    </string>
+    <string name="title_activity_login">选择登录身份</string>
+    <string name="title_activity_fingerprint">指纹认证</string>
 </resources>

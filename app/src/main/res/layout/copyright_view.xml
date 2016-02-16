@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        style="@style/txt_white_small_style"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_margin="12dp"
+        android:textColor="@color/txt_black"
+        android:text="版权所有 © 成都市佳颖医用制品有限公司 1996-2016" />
+</LinearLayout>

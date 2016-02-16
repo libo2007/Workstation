@@ -11,13 +11,14 @@ import android.widget.Button;
 
 import com.jiaying.workstation.R;
 import com.jiaying.workstation.activity.BloodPlasmaMachineForNurseActivity;
+import com.jiaying.workstation.activity.FingerprintActivity;
 
 /**
  * 采浆
  */
 public class BloodPlasmaCollectionFragment extends Fragment {
     private Button nurse_login_btn;
-
+    private Button pulp_btn;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +30,8 @@ public class BloodPlasmaCollectionFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_plasma_collection, container, false);
         nurse_login_btn = (Button) view.findViewById(R.id.nurse_login_btn);
         nurse_login_btn.setOnClickListener(new goNuserLoginListener());
+        pulp_btn = (Button) view.findViewById(R.id.pulp_btn);
+        pulp_btn.setOnClickListener(new ClickListener());
         return view;
     }
 
@@ -37,6 +40,15 @@ public class BloodPlasmaCollectionFragment extends Fragment {
         @Override
         public void onClick(View v) {
             Intent it = new Intent(getActivity(), BloodPlasmaMachineForNurseActivity.class);
+            startActivity(it);
+        }
+    }
+
+    //献浆
+    private class ClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            Intent it = new Intent(getActivity(), FingerprintActivity.class);
             startActivity(it);
         }
     }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.jiaying.workstation.activity.PulpMachineSelectActivity"
+    >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/comm_app_title" />
+        <TextView
+            android:id="@+id/sure_txt"
+            android:layout_marginRight="@dimen/btn_padding"
+            android:layout_gravity="right|center_vertical"
+            android:text="分配"
+            style="@style/txt_white_small_style"/>
+    </FrameLayout>
+
+    <GridView
+        android:layout_marginTop="@dimen/btn_margin"
+        android:id="@+id/gridview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:numColumns="4"
+        android:verticalSpacing="@dimen/btn_margin"
+        android:horizontalSpacing="@dimen/btn_margin"
+        android:stretchMode="columnWidth"
+        android:gravity="center"
+        />
+
+</LinearLayout>
