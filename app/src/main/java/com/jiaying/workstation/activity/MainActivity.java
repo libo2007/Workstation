@@ -4,7 +4,7 @@ import android.app.FragmentManager;
 import android.os.Bundle;
 
 import com.jiaying.workstation.R;
-import com.jiaying.workstation.com.jiaying.workstation.fragment.PlasmaCollectionFragment;
+import com.jiaying.workstation.com.jiaying.workstation.fragment.BloodPlasmaCollectionFragment;
 
 /**
  * 主界面包括（建档，登记，体检，献浆四大部分）
@@ -15,7 +15,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.fragment_container, new PlasmaCollectionFragment()).commit();
+        fragmentManager.beginTransaction().replace(R.id.fragment_container, new BloodPlasmaCollectionFragment()).commit();
     }
 
     @Override

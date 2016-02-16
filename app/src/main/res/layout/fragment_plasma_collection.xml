@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/txt_grey"
     android:orientation="vertical"
-    tools:context="com.jiaying.workstation.com.jiaying.workstation.fragment.PlasmaCollectionFragment"
+    tools:context="com.jiaying.workstation.com.jiaying.workstation.fragment.BloodPlasmaCollectionFragment"
     android:gravity="center">
 
     <!-- TODO: Update blank fragment layout -->
