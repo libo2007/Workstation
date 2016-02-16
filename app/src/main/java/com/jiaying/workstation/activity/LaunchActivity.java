@@ -23,7 +23,7 @@ public class LaunchActivity extends Activity {
     private class runnable implements Runnable {
         @Override
         public void run() {
-            Intent it = new Intent(LaunchActivity.this, MainActivity.class);
+            Intent it = new Intent(LaunchActivity.this,LoginActivity.class);
             startActivity(it);
             finish();
         }

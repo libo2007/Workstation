@@ -21,19 +21,18 @@ import java.util.List;
 /**
  * 护士分配浆机
  */
-public class PulpMachineForNurseActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity {
     private GridView mGridView;
     private NurseAdapter mAdapter;
     private List<Nurse> mList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
     public void initView() {
-        setContentView(R.layout.activity_pulp_machine_for_nurse);
+        setContentView(R.layout.activity_login);
         new SetTopView(this, R.string.title_activity_pulp_machine_for_nurse, true);
         mGridView = (GridView) findViewById(R.id.gridview);
         mList = new ArrayList<Nurse>();
@@ -42,8 +41,8 @@ public class PulpMachineForNurseActivity extends BaseActivity {
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //选择护士后就选择分配浆机
-                Intent it = new Intent(PulpMachineForNurseActivity.this,PulpMachineSelectActivity.class);
+                //选择护士后就指纹认证
+                Intent it = new Intent(LoginActivity.this,FingerprintActivity.class);
                 startActivity(it);
             }
         });
