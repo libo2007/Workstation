@@ -12,7 +12,7 @@ import android.view.View;
 import com.jiaying.workstation.R;
 import com.jiaying.workstation.utils.SetTopView;
 /*
-指纹认证
+指纹认证模块
  */
 public class FingerprintActivity extends BaseActivity {
 
