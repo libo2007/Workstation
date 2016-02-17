@@ -1,4 +1,4 @@
-package com.jiaying.workstation.com.jiaying.workstation.fragment;
+package com.jiaying.workstation.fragment;
 
 
 import android.app.Fragment;
