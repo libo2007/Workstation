@@ -31,6 +31,11 @@ public class LoginActivity extends BaseActivity {
     }
 
     @Override
+    public void initVariables() {
+
+    }
+
+    @Override
     public void initView() {
         setContentView(R.layout.activity_login);
         new SetTopView(this, R.string.title_activity_pulp_machine_for_nurse, false);
@@ -60,8 +65,9 @@ public class LoginActivity extends BaseActivity {
 
     }
 
-    @Override
-    public void initVariables() {
 
-    }
+
+
+
+
 }
