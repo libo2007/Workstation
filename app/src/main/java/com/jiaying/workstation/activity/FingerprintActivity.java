@@ -25,7 +25,7 @@ public class FingerprintActivity extends BaseActivity {
     @Override
     public void initView() {
         setContentView(R.layout.activity_fingerprint);
-        new SetTopView(this, R.string.title_activity_fingerprint, true);
+        new SetTopView(this, R.string.title_activity_fingerprint, false);
         //认证通过后跳到主界面
         new Handler().postDelayed(new runnable(), 3000);
     }
