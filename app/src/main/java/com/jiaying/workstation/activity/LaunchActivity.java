@@ -8,7 +8,7 @@ import android.os.Handler;
 import com.jiaying.workstation.R;
 
 /**
- * 启动页面
+ * 启动页面，三秒后跳转到选择护士界面
  */
 public class LaunchActivity extends Activity {
     private Handler mHandler = new Handler();
