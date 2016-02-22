@@ -7,6 +7,30 @@
     android:orientation="vertical"
     tools:context="com.jiaying.workstation.activity.MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:layout_height="@dimen/comm_title_height">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_height="50dp" />
+        <TextView
+            android:background="@color/main_color"
+            android:layout_width="0dp"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:paddingLeft="5dp"
+            android:text="@string/app_name"
+            android:textSize="@dimen/text_size_midle"
+            android:textColor="@color/white"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <View
+        style="@style/line_grey_style"
+       />
     <RadioGroup
         android:id="@+id/group"
         android:layout_width="match_parent"
@@ -26,7 +50,8 @@
             android:paddingTop="10dp"
             android:text="@string/jiandang"
             android:textColor="@drawable/radio_btn_text"
-            android:textSize="@dimen/text_size_midle" />
+            android:textSize="@dimen/text_size_midle"
+            android:checked="false" />
 
         <RadioButton
             android:id="@+id/btn_2"
