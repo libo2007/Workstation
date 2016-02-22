@@ -13,6 +13,8 @@ import com.jiaying.workstation.R;
 import com.jiaying.workstation.activity.BloodPlasmaMachineForNurseActivity;
 import com.jiaying.workstation.activity.FingerprintActivity;
 import com.jiaying.workstation.activity.IdentityCardActivity;
+import com.jiaying.workstation.constant.IntentExtra;
+import com.jiaying.workstation.constant.TypeConstant;
 
 /**
  * 等级
@@ -38,8 +40,8 @@ public class RegisterFragment extends Fragment {
     private class ClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-
             Intent it = new Intent(getActivity(), IdentityCardActivity.class);
+            it.putExtra(IntentExtra.REG, TypeConstant.TYPE_REG);
             startActivity(it);
         }
     }

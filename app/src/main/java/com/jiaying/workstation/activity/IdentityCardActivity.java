@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.jiaying.workstation.R;
+import com.jiaying.workstation.constant.IntentExtra;
 import com.jiaying.workstation.utils.SetTopView;
 
 /*
@@ -41,6 +42,7 @@ public class IdentityCardActivity extends BaseActivity {
         @Override
         public void run() {
             Intent it = new Intent(IdentityCardActivity.this, FingerprintActivity.class);
+            it.putExtra(IntentExtra.REG,getIntent().getIntExtra(IntentExtra.REG,0));
             startActivity(it);
             finish();
         }

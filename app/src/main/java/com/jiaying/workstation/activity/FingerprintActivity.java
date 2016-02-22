@@ -10,7 +10,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.jiaying.workstation.R;
+import com.jiaying.workstation.constant.IntentExtra;
+import com.jiaying.workstation.constant.TypeConstant;
 import com.jiaying.workstation.utils.SetTopView;
+
 /*
 指纹认证模块
  */
@@ -44,7 +47,14 @@ public class FingerprintActivity extends BaseActivity {
     private class runnable implements Runnable {
         @Override
         public void run() {
-            Intent it = new Intent(FingerprintActivity.this, MainActivity.class);
+            Intent it = null;
+            int type = getIntent().getIntExtra(IntentExtra.REG, 0);
+            if (type == TypeConstant.TYPE_REG) {
+                //登记的话就到采集人脸
+                it = new Intent(FingerprintActivity.this, FaceCollectionActivity.class);
+            } else {
+                it = new Intent(FingerprintActivity.this, MainActivity.class);
+            }
             startActivity(it);
             finish();
         }
