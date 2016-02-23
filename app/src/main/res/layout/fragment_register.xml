@@ -3,16 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/global_bg"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context="com.jiaying.workstation.fragment.RegisterFragment"
     android:gravity="center">
 
     <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="0.191"/>
     <Button
         android:id="@+id/register_btn"
-        android:layout_marginTop="@dimen/btn_margin"
-        android:layout_marginLeft="@dimen/btn_margin"
-        android:layout_marginRight="@dimen/btn_margin"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="0.618"
         style="@style/btn_style"
         android:text="登记" />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="0.191"/>
 </LinearLayout>

@@ -9,6 +9,6 @@
         android:gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_margin="12dp"
-        android:textColor="@color/white"
+        android:textColor="@color/copyrightwhite"
         android:text="版权所有 © 成都市佳颖医用制品有限公司 1996-2016" />
 </LinearLayout>

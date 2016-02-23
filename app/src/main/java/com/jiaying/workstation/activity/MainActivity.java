@@ -9,7 +9,7 @@ import com.jiaying.workstation.fragment.BloodPlasmaCollectionFragment;
 import com.jiaying.workstation.fragment.RegisterFragment;
 
 /**
- * 主界面包括（建档，登记，体检， 采浆四大部分）
+ * 主界面包括（建档，登记，体检， 采浆四大部分；以及一个查询）
  */
 public class MainActivity extends BaseActivity {
     private FragmentManager fragmentManager;
@@ -27,10 +27,10 @@ public class MainActivity extends BaseActivity {
     public void initView() {
         setContentView(R.layout.activity_main);
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null) {
+//        if(actionBar != null) {
 //            actionBar.setDisplayHomeAsUpEnabled(true);
 //            actionBar.setTitle(R.string.app_name);
-        }
+//        }
         mGroup = (RadioGroup) findViewById(R.id.group);
         mGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
