@@ -6,6 +6,7 @@ import android.widget.RadioGroup;
 
 import com.jiaying.workstation.R;
 import com.jiaying.workstation.fragment.BloodPlasmaCollectionFragment;
+import com.jiaying.workstation.fragment.DispatchFragment;
 import com.jiaying.workstation.fragment.RegisterFragment;
 
 /**
@@ -48,6 +49,10 @@ public class MainActivity extends BaseActivity {
                         break;
                     case R.id.btn_4:
                         fragmentManager.beginTransaction().replace(R.id.fragment_container, new BloodPlasmaCollectionFragment()).commit();
+                        break;
+                    case R.id.btn_5:
+                        //调度
+                        fragmentManager.beginTransaction().replace(R.id.fragment_container, new DispatchFragment()).commit();
                         break;
                 }
             }
