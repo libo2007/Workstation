@@ -4,31 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/global_bg"
+    android:orientation="vertical"
     tools:context="com.jiaying.workstation.activity.FingerprintActivity">
 
-    <include layout="@layout/comm_app_title"/>
+    <include layout="@layout/comm_app_title" />
+
     <LinearLayout
-        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
         android:orientation="horizontal">
 
 
         <ImageView
-            android:layout_gravity="center_vertical"
             android:id="@+id/head_image"
             android:layout_width="@dimen/head_size"
             android:layout_height="@dimen/head_size"
+            android:layout_gravity="center_vertical"
             android:layout_margin="@dimen/btn_padding"
             android:scaleType="fitXY"
             android:src="@mipmap/ic_norse" />
 
         <LinearLayout
-            android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:orientation="vertical">
 
             <TextView
@@ -40,7 +42,7 @@
                 android:id="@+id/id_txt"
                 style="@style/txt_grey_small_style"
                 android:layout_marginTop="@dimen/btn_padding"
-                android:text="43252" />
+                android:text="证件号：5112011970****9956" />
 
         </LinearLayout>
     </LinearLayout>
@@ -51,14 +53,18 @@
         android:layout_weight="1">
 
         <FrameLayout
-            android:layout_centerInParent="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true">
+
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/finger_print"/>
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="48dp"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/finger_print" />
         </FrameLayout>
     </RelativeLayout>
-    <include layout="@layout/copyright_view"/>
+
+    <include layout="@layout/copyright_view" />
 </LinearLayout>

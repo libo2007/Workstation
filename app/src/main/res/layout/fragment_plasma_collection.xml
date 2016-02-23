@@ -3,30 +3,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/global_bg"
+    android:gravity="center"
     android:orientation="vertical"
-    tools:context="com.jiaying.workstation.fragment.BloodPlasmaCollectionFragment"
-    android:gravity="center">
+    tools:context="com.jiaying.workstation.fragment.BloodPlasmaCollectionFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <Button
-        android:visibility="gone"
+        style="@style/btn_style"
         android:layout_marginLeft="@dimen/btn_margin"
         android:layout_marginRight="@dimen/btn_margin"
-        style="@style/btn_style"
-        android:text="查看护士登录采浆设备情况" />
+        android:text="查看护士登录采浆设备情况"
+        android:visibility="gone" />
+
     <Button
-        android:visibility="gone"
         android:id="@+id/nurse_login_btn"
-        android:layout_marginTop="@dimen/btn_margin"
+        style="@style/btn_style"
         android:layout_marginLeft="@dimen/btn_margin"
         android:layout_marginRight="@dimen/btn_margin"
-        style="@style/btn_style"
-        android:text="护士登录浆机" />
-    <Button
-        android:id="@+id/pulp_btn"
         android:layout_marginTop="@dimen/btn_margin"
-        android:layout_marginLeft="@dimen/btn_margin"
-        android:layout_marginRight="@dimen/btn_margin"
-        style="@style/btn_style"
-        android:text="献浆" />
+        android:text="护士登录浆机"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="0.191" />
+
+        <Button
+            android:id="@+id/pulp_btn"
+            style="@style/btn_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.618"
+            android:text="@string/caijiang" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="0.191" />
+    </LinearLayout>
+
+
 </LinearLayout>

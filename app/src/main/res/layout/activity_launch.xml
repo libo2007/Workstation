@@ -7,10 +7,10 @@
     android:background="#FFFFFF"
     tools:context="com.jiaying.workstation.activity.LaunchActivity">
 
-<ImageView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:background="@mipmap/launch_ic"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@mipmap/launch_ic" />
 
 </FrameLayout>
