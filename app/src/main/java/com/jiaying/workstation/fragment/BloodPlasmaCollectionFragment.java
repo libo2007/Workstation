@@ -12,6 +12,9 @@ import android.widget.Button;
 import com.jiaying.workstation.R;
 import com.jiaying.workstation.activity.BloodPlasmaMachineForNurseActivity;
 import com.jiaying.workstation.activity.FingerprintActivity;
+import com.jiaying.workstation.activity.IdentityCardActivity;
+import com.jiaying.workstation.constant.IntentExtra;
+import com.jiaying.workstation.constant.TypeConstant;
 
 /**
  * 采浆
@@ -48,7 +51,8 @@ public class BloodPlasmaCollectionFragment extends Fragment {
     private class ClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            Intent it = new Intent(getActivity(), FingerprintActivity.class);
+            Intent it = new Intent(getActivity(), IdentityCardActivity.class);
+            it.putExtra(IntentExtra.EXTRA_TYPE, TypeConstant.TYPE_BLOODPLASMACOLLECTION);
             startActivity(it);
         }
     }

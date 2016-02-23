@@ -48,12 +48,16 @@ public class FingerprintActivity extends BaseActivity {
         @Override
         public void run() {
             Intent it = null;
-            int type = getIntent().getIntExtra(IntentExtra.REG, 0);
+            int type = getIntent().getIntExtra(IntentExtra.EXTRA_TYPE, 0);
             if (type == TypeConstant.TYPE_REG) {
                 //登记的话就到采集人脸
                 it = new Intent(FingerprintActivity.this, FaceCollectionActivity.class);
-            } else {
-                it = new Intent(FingerprintActivity.this, MainActivity.class);
+            } else if(type == TypeConstant.TYPE_BLOODPLASMACOLLECTION){
+                //献浆的，去选择浆机
+                it = new Intent(FingerprintActivity.this,PulpMachineSelectActivity.class);
+            }else{
+                //其他的情况
+                it = new Intent(FingerprintActivity.this,MainActivity.class);
             }
             startActivity(it);
             finish();

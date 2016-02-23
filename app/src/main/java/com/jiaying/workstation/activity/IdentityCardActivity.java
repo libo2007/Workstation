@@ -42,7 +42,7 @@ public class IdentityCardActivity extends BaseActivity {
         @Override
         public void run() {
             Intent it = new Intent(IdentityCardActivity.this, FingerprintActivity.class);
-            it.putExtra(IntentExtra.REG,getIntent().getIntExtra(IntentExtra.REG,0));
+            it.putExtra(IntentExtra.EXTRA_TYPE,getIntent().getIntExtra(IntentExtra.EXTRA_TYPE,0));
             startActivity(it);
             finish();
         }

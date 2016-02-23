@@ -41,7 +41,7 @@ public class RegisterFragment extends Fragment {
         @Override
         public void onClick(View v) {
             Intent it = new Intent(getActivity(), IdentityCardActivity.class);
-            it.putExtra(IntentExtra.REG, TypeConstant.TYPE_REG);
+            it.putExtra(IntentExtra.EXTRA_TYPE, TypeConstant.TYPE_REG);
             startActivity(it);
         }
     }

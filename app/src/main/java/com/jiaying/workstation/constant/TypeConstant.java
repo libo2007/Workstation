@@ -8,4 +8,6 @@ package com.jiaying.workstation.constant;
 public class TypeConstant {
     //登记
     public static final int  TYPE_REG = 1;
+    //采浆
+    public static final int  TYPE_BLOODPLASMACOLLECTION = 2;
 }

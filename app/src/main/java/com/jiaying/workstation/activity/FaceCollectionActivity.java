@@ -55,7 +55,8 @@ public class FaceCollectionActivity extends BaseActivity implements
     protected void onResume() {
         super.onResume();
         if (this.checkCameraHardware(this) && (mCamera == null)) {
-            mCamera = getCamera();
+//            mCamera = getCamera();
+            mCamera = getFrontFacingCameraGingerbread();
             if (mSurfaceHolder != null) {
                 setStartPreview(mCamera, mSurfaceHolder);
             }
@@ -78,7 +79,25 @@ public class FaceCollectionActivity extends BaseActivity implements
         }
         return camera;
     }
+    //打开前置摄像头
+    private Camera getFrontFacingCameraGingerbread() {
+        int cameraCount = 0;
+        Camera cam = null;
+        Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+        cameraCount = Camera.getNumberOfCameras();
 
+        for (int camIdx = 0; camIdx < cameraCount; camIdx++) {
+            Camera.getCameraInfo(camIdx, cameraInfo);
+            if (cameraInfo.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
+                try {
+                    cam = Camera.open(camIdx);
+                } catch (RuntimeException e) {
+                }
+            }
+        }
+
+        return cam;
+    }
     //预览
     private void setStartPreview(Camera camera, SurfaceHolder holder) {
         try {
