@@ -23,4 +23,7 @@
     <string name="title_activity_physical_todo">待体检</string>
     <string name="title_activity_physical_over">体检完成</string>
     <string name="title_activity_serch_result">查询结果</string>
+    <string name="title_activity_physical_exam_not_pass">PhysicalExamNotPassActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

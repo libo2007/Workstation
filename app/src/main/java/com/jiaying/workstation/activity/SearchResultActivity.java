@@ -28,7 +28,7 @@ public class SearchResultActivity extends BaseActivity {
     @Override
     public void initView() {
         setContentView(R.layout.activity_search_result);
-        new SetTopView(this, R.string.title_activity_serch_result, false);
+        new SetTopView(this, R.string.title_activity_serch_result, true);
     }
 
     @Override
