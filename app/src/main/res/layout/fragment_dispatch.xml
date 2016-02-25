@@ -4,151 +4,181 @@
     android:layout_height="match_parent"
     android:background="@color/global_bg"
     android:orientation="vertical"
-    tools:context="com.jiaying.workstation.fragment.DispatchFragment"
->
+    tools:context="com.jiaying.workstation.fragment.DispatchFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
     <LinearLayout
-        android:layout_marginTop="@dimen/btn_margin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="0.191"/>
-        <Button
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="0.618"
-            style="@style/btn_style"
-            android:text="登记完成" />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="0.191"/>
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_marginTop="@dimen/btn_margin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/btn_margin">
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="0.191"/>
+            android:layout_weight="0.191" />
+
         <Button
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="0.618"
+            android:id="@+id/register_over_btn"
             style="@style/btn_style"
-            android:text="待体检" />
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.618"
+            android:text="@string/title_activity_register_over" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="0.191"/>
+            android:layout_weight="0.191" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="@dimen/btn_margin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/btn_margin">
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="0.191"/>
+            android:layout_weight="0.191" />
+
         <Button
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="0.618"
+            android:id="@+id/phy"
             style="@style/btn_style"
-            android:text="体检中" />
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.618"
+            android:text="@string/title_activity_physical_todo" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="0.191"/>
+            android:layout_weight="0.191" />
 
     </LinearLayout>
+
     <LinearLayout
-        android:layout_marginTop="@dimen/btn_margin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/btn_margin">
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="0.191"/>
+            android:layout_weight="0.191" />
+
         <Button
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="0.618"
+            android:id="@+id/physical_examing_btn"
             style="@style/btn_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.618"
+            android:text="@string/title_activity_physical_examing" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="0.191" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/btn_margin">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="0.191" />
+
+        <Button
+            style="@style/btn_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.618"
             android:text="体检中完成" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="0.191"/>
+            android:layout_weight="0.191" />
 
     </LinearLayout>
+
     <LinearLayout
-        android:layout_marginTop="@dimen/btn_margin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/btn_margin">
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="0.191"/>
+            android:layout_weight="0.191" />
+
         <Button
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="0.618"
             style="@style/btn_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.618"
             android:text="待采浆" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="0.191"/>
+            android:layout_weight="0.191" />
 
-    </LinearLayout><LinearLayout
-    android:layout_marginTop="@dimen/btn_margin"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_weight="0.191"/>
-    <Button
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="0dp"
-        android:layout_weight="0.618"
-        style="@style/btn_style"
-        android:text="采浆中" />
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_weight="0.191"/>
+        android:layout_marginTop="@dimen/btn_margin">
 
-</LinearLayout><LinearLayout
-    android:layout_marginTop="@dimen/btn_margin"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_weight="0.191"/>
-    <Button
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="0.191" />
+
+        <Button
+            style="@style/btn_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.618"
+            android:text="采浆中" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="0.191" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_width="0dp"
-        android:layout_weight="0.618"
-        style="@style/btn_style"
-        android:text="采浆完成" />
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_weight="0.191"/>
+        android:layout_marginTop="@dimen/btn_margin">
 
-</LinearLayout>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="0.191" />
 
+        <Button
+            style="@style/btn_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.618"
+            android:text="采浆完成" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="0.191" />
+
+    </LinearLayout>
 
 
 </LinearLayout>

@@ -64,6 +64,24 @@
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name=".activity.RegisterOverActivity"
+            android:label="@string/title_activity_pulp_machine_for_nurse"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activity.PhysicalExamTodoActivity"
+            android:label="@string/title_activity_physical_todo"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activity.PhysicalExamOverActivity"
+            android:label="@string/title_activity_physical_over"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
