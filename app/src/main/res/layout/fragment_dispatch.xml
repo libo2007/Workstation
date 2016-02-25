@@ -94,12 +94,30 @@
             android:layout_height="1dp"
             android:layout_weight="0.191" />
 
-        <Button
-            style="@style/btn_style"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.618"
-            android:text="体检中完成" />
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/physical_exam_pass_btn"
+                style="@style/btn_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/btn_margin"
+                android:layout_weight="1"
+                android:text="体检通过" />
+
+            <Button
+                android:id="@+id/physical_exam_not_pass_btn"
+                style="@style/btn_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="体检未通过" />
+        </LinearLayout>
+
 
         <TextView
             android:layout_width="0dp"
