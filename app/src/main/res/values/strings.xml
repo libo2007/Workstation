@@ -22,4 +22,5 @@
     <string name="title_activity_physical_examing">体检中</string>
     <string name="title_activity_physical_todo">待体检</string>
     <string name="title_activity_physical_over">体检完成</string>
+    <string name="title_activity_serch_result">查询结果</string>
 </resources>

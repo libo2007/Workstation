@@ -8,6 +8,7 @@ import com.jiaying.workstation.R;
 import com.jiaying.workstation.fragment.BloodPlasmaCollectionFragment;
 import com.jiaying.workstation.fragment.DispatchFragment;
 import com.jiaying.workstation.fragment.RegisterFragment;
+import com.jiaying.workstation.fragment.SearchFragment;
 
 /**
  * 主界面包括（建档，登记，体检， 采浆四大部分；以及一个查询）
@@ -21,7 +22,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.fragment_container, new BloodPlasmaCollectionFragment()).commit();
+        fragmentManager.beginTransaction().replace(R.id.fragment_container, new SearchFragment()).commit();
     }
 
     @Override
@@ -53,6 +54,10 @@ public class MainActivity extends BaseActivity {
                     case R.id.btn_5:
                         //调度
                         fragmentManager.beginTransaction().replace(R.id.fragment_container, new DispatchFragment()).commit();
+                        break;
+                    case R.id.btn_6:
+                        //查询
+                        fragmentManager.beginTransaction().replace(R.id.fragment_container, new SearchFragment()).commit();
                         break;
                 }
             }

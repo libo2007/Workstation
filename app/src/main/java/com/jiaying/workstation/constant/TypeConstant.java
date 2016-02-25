@@ -10,4 +10,7 @@ public class TypeConstant {
     public static final int  TYPE_REG = 1;
     //采浆
     public static final int  TYPE_BLOODPLASMACOLLECTION = 2;
+
+    //查询
+    public static final int TYPE_SEARCH = 5;
 }
