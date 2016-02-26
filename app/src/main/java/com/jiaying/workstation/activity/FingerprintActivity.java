@@ -52,15 +52,20 @@ public class FingerprintActivity extends BaseActivity {
             if (type == TypeConstant.TYPE_REG) {
                 //登记的话就到采集人脸
                 it = new Intent(FingerprintActivity.this, FaceCollectionActivity.class);
-            } else if(type == TypeConstant.TYPE_BLOODPLASMACOLLECTION){
+            } else if (type == TypeConstant.TYPE_BLOODPLASMACOLLECTION) {
                 //献浆的，去选择浆机
-                it = new Intent(FingerprintActivity.this,PulpMachineSelectActivity.class);
-            }else{
+                it = new Intent(FingerprintActivity.this, PulpMachineSelectActivity.class);
+            } else if (type == TypeConstant.TYPE_PHYSICAL_EXAM) {
+                //体检，去体检
+//                it = new Intent(FingerprintActivity.this, PulpMachineSelectActivity.class);
+            } else {
                 //其他的情况
-                it = new Intent(FingerprintActivity.this,MainActivity.class);
+                it = new Intent(FingerprintActivity.this, MainActivity.class);
             }
-            startActivity(it);
-            finish();
+           if(it!= null){
+               startActivity(it);
+               finish();
+           }
         }
     }
 }

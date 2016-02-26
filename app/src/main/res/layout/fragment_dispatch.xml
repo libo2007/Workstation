@@ -9,7 +9,6 @@
     <!-- TODO: Update blank fragment layout -->
 
     <LinearLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/btn_margin">
@@ -137,11 +136,12 @@
             android:layout_weight="0.191" />
 
         <Button
+            android:id="@+id/blood_plasma_todo_btn"
             style="@style/btn_style"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.618"
-            android:text="待采浆" />
+            android:text="@string/title_activity_bloodplasma_collection_todo" />
 
         <TextView
             android:layout_width="0dp"
@@ -161,11 +161,12 @@
             android:layout_weight="0.191" />
 
         <Button
+            android:id="@+id/blood_plasma_collecting_btn"
             style="@style/btn_style"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.618"
-            android:text="采浆中" />
+            android:text="@string/title_activity_bloodplasma_collecting" />
 
         <TextView
             android:layout_width="0dp"
@@ -185,11 +186,12 @@
             android:layout_weight="0.191" />
 
         <Button
+            android:id="@+id/blood_plasma_collect_over_btn"
             style="@style/btn_style"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.618"
-            android:text="采浆完成" />
+            android:text="@string/title_activity_bloodplasma_collection_over" />
 
         <TextView
             android:layout_width="0dp"

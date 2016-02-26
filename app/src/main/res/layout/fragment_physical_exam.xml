@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/global_bg"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.jiaying.workstation.fragment.PhysicalExamFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <Button
+        style="@style/btn_style"
+        android:layout_marginLeft="@dimen/btn_margin"
+        android:layout_marginRight="@dimen/btn_margin"
+        android:text="查看护士登录采浆设备情况"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/nurse_login_btn"
+        style="@style/btn_style"
+        android:layout_marginLeft="@dimen/btn_margin"
+        android:layout_marginRight="@dimen/btn_margin"
+        android:layout_marginTop="@dimen/btn_margin"
+        android:text="护士登录浆机"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="0.191" />
+
+        <Button
+            android:id="@+id/physical_exam_btn"
+            style="@style/btn_style"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.618"
+            android:text="@string/physical_exam" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="0.191" />
+    </LinearLayout>
+
+
+</LinearLayout>

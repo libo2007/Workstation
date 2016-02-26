@@ -24,7 +24,7 @@
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/title_activity_main"
-            android:screenOrientation="landscape"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
@@ -85,6 +85,12 @@
         <activity
             android:name=".activity.PhysicalExamPassActivity"
             android:label="@string/title_activity_physical_pass"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activity.DispatchStateListActivity"
+            android:label="@string/title_activity_dispatch_state"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>

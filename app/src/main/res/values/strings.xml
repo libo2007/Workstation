@@ -23,6 +23,16 @@
     <string name="title_activity_physical_todo">待体检</string>
     <string name="title_activity_physical_over">体检完成</string>
     <string name="title_activity_physical_pass">体检通过</string>
+    <string name="title_activity_bloodplasma_collection_todo">待采浆</string>
+    <string name="title_activity_bloodplasma_collecting">采浆中</string>
+    <string name="title_activity_bloodplasma_collection_over">采浆完成</string>
+    <string name="title_activity_dispatch_state">调度状态</string>
     <string name="title_activity_physical_not_pass">体检未通过</string>
     <string name="title_activity_serch_result">查询结果</string>
+    <string name="go_physical_todo">进入待体检</string>
+    <string name="go_physical">去体检</string>
+    <string name="go_bloodplasma_todo">进入待采浆</string>
+    <string name="go_bloodplasma">去采浆</string>
+    <string name="change_mechine">换机</string>
+    <string name="physical_exam">体检</string>
 </resources>
