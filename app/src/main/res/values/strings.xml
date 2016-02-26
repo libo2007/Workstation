@@ -20,6 +20,7 @@
     <string name="title_activity_face_collection">人脸采集</string>
     <string name="title_activity_register_over">登记完成</string>
     <string name="title_activity_physical_examing">体检中</string>
+    <string name="title_activity_physical_exam">体检</string>
     <string name="title_activity_physical_todo">待体检</string>
     <string name="title_activity_physical_over">体检完成</string>
     <string name="title_activity_physical_pass">体检通过</string>
@@ -29,6 +30,8 @@
     <string name="title_activity_dispatch_state">调度状态</string>
     <string name="title_activity_physical_not_pass">体检未通过</string>
     <string name="title_activity_serch_result">查询结果</string>
+    <string name="title_activity_physical_exam_ask">健康询问</string>
+    <string name="title_activity_physical_exam_check">体格检查</string>
     <string name="go_physical_todo">进入待体检</string>
     <string name="go_physical">去体检</string>
     <string name="go_bloodplasma_todo">进入待采浆</string>

@@ -24,7 +24,7 @@
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/title_activity_main"
-            android:screenOrientation="portrait"
+            android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
@@ -77,6 +77,12 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
+            android:name=".activity.PhysicalExamActivity"
+            android:label="@string/title_activity_physical_todo"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
             android:name=".activity.PhysicalExamOverActivity"
             android:label="@string/title_activity_physical_over"
             android:screenOrientation="landscape"
@@ -97,6 +103,18 @@
         <activity
             android:name=".activity.SearchResultActivity"
             android:label="@string/title_activity_serch_result"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activity.PhysicalExamAskActivity"
+            android:label="@string/title_activity_physical_exam_ask"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activity.PhysicalExamCheckActivity"
+            android:label="@string/title_activity_physical_exam_check"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>

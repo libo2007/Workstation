@@ -57,7 +57,7 @@ public class FingerprintActivity extends BaseActivity {
                 it = new Intent(FingerprintActivity.this, PulpMachineSelectActivity.class);
             } else if (type == TypeConstant.TYPE_PHYSICAL_EXAM) {
                 //体检，去体检
-//                it = new Intent(FingerprintActivity.this, PulpMachineSelectActivity.class);
+                it = new Intent(FingerprintActivity.this, PhysicalExamActivity.class);
             } else {
                 //其他的情况
                 it = new Intent(FingerprintActivity.this, MainActivity.class);
