@@ -11,7 +11,7 @@ import com.jiaying.workstation.fragment.RegisterFragment;
 import com.jiaying.workstation.fragment.SearchFragment;
 
 /**
- * 主界面包括（建档，登记，体检， 采浆四大部分；以及一个查询）
+ * 主界面包括（建档，登记，体检，采浆，调度四大部分；以及一个查询）
  */
 public class MainActivity extends BaseActivity {
     private FragmentManager fragmentManager;

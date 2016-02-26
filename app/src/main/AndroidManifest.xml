@@ -82,6 +82,12 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
+            android:name=".activity.PhysicalExamingActivity"
+            android:label="@string/title_activity_physical_examing"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
             android:name=".activity.SearchResultActivity"
             android:label="@string/title_activity_serch_result"
             android:screenOrientation="landscape"

@@ -28,7 +28,7 @@ public class IdentityCardActivity extends BaseActivity {
     @Override
     public void initView() {
         setContentView(R.layout.activity_identity_card);
-        new SetTopView(this, R.string.title_activity_identity, false);
+        new SetTopView(this, R.string.title_activity_identity, true);
         //认证通过后跳到指纹界面
         new Handler().postDelayed(new runnable(), 3000);
     }
