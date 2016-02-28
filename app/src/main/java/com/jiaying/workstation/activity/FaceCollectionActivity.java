@@ -1,9 +1,11 @@
 package com.jiaying.workstation.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.Toast;
@@ -102,7 +104,9 @@ public class FaceCollectionActivity extends BaseActivity implements
     private void setStartPreview(Camera camera, SurfaceHolder holder) {
         try {
             camera.setPreviewDisplay(holder);
-            // camera.setDisplayOrientation(90);
+
+            camera.setDisplayOrientation(180);
+
             camera.startPreview();
         } catch (IOException e) {
             e.printStackTrace();
@@ -155,6 +159,42 @@ public class FaceCollectionActivity extends BaseActivity implements
             mCamera = null;
         }
     }
+//
+//    private int getCameraRotationDegrees(Activity activity) {
+//
+//        int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
+//        Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+//        int degrees = 0;
+//        switch (rotation) {
+//            case Surface.ROTATION_0:
+//                degrees = 0;
+//                break;
+//
+//            case Surface.ROTATION_90:
+//                degrees = 90;
+//                break;
+//
+//            case Surface.ROTATION_180:
+//                degrees = 180;
+//                break;
+//
+//            case Surface.ROTATION_270:
+//                degrees = 270;
+//                break;
+//        }
+//        int result;
+//
+//        if (cameraInfo.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
+//            result = (cameraInfo.orientation + degrees) % 360;
+//            result = (360 - result) % 360;
+//            // compensate the mirror
+//        } else {
+//            // back-facing
+//            result = (cameraInfo.orientation - degrees + 360) % 360;
+//        }
+//        return result;
+//
+//    }
 
     private class runnable implements Runnable {
         @Override

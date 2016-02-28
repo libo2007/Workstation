@@ -51,7 +51,7 @@ public class LoginActivity extends BaseActivity {
                 startActivity(it);
             }
         });
-        for(int i = 0;i < 10;i++){
+        for(int i = 0;i < 30;i++){
             Nurse nurse = new Nurse();
             nurse.setName("护士" + i);
             nurse.setWorkid("1232" + i);
