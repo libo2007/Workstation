@@ -6,18 +6,20 @@
     android:layout_height="match_parent"
     android:background="@color/global_bg"
     android:orientation="vertical"
-    tools:context="com.jiaying.workstation.activity.PhysicalExamNotPassActivity">
+    tools:context="com.jiaying.workstation.activity.DispatchStateListActivity">
 
     <include layout="@layout/comm_app_title" />
 
 
-    <RelativeLayout
+    <ListView
+        android:id="@+id/listview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:cacheColorHint="@android:color/transparent">
 
 
-    </RelativeLayout>
+    </ListView>
 
     <include layout="@layout/copyright_view" />
 </LinearLayout>

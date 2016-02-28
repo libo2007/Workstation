@@ -6,7 +6,7 @@ import com.jiaying.workstation.R;
 import com.jiaying.workstation.utils.SetTopView;
 
 /**
- * 体检中
+ * 体检项目页面
  */
 public class PhysicalExamingActivity extends BaseActivity {
     @Override

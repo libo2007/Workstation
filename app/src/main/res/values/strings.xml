@@ -17,13 +17,36 @@
     <string name="title_activity_login">选择登录身份</string>
     <string name="title_activity_identity">录入身份证</string>
     <string name="title_activity_fingerprint">指纹认证</string>
+    <string name="title_activity_fingerprint_xj">献浆员指纹认证</string>
+    <string name="title_activity_fingerprint_doc">医生（护士）指纹认证</string>
     <string name="title_activity_face_collection">人脸采集</string>
     <string name="title_activity_register_over">登记完成</string>
     <string name="title_activity_physical_examing">体检中</string>
+    <string name="title_activity_physical_exam">体检</string>
     <string name="title_activity_physical_todo">待体检</string>
     <string name="title_activity_physical_over">体检完成</string>
+    <string name="title_activity_physical_pass">体检通过</string>
+    <string name="title_activity_bloodplasma_collection_todo">待采浆</string>
+    <string name="title_activity_bloodplasma_collecting">采浆中</string>
+    <string name="title_activity_bloodplasma_collection_over">采浆完成</string>
+    <string name="title_activity_dispatch_state">调度状态</string>
+    <string name="title_activity_physical_not_pass">体检未通过</string>
     <string name="title_activity_serch_result">查询结果</string>
     <string name="title_activity_physical_exam_not_pass">PhysicalExamNotPassActivity</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_physical_exam_ask">健康询问</string>
+    <string name="title_activity_physical_exam_note">备注</string>
+    <string name="title_activity_physical_exam_check">体格检查</string>
+    <string name="title_activity_physical_exam_result">体格结果</string>
+    <string name="go_physical_todo">进入待体检</string>
+    <string name="go_physical">去体检</string>
+    <string name="go_bloodplasma_todo">进入待采浆</string>
+    <string name="go_bloodplasma">去采浆</string>
+    <string name="change_mechine">换机</string>
+    <string name="physical_exam">体检</string>
+    <string name="physical_pass">体检合格</string>
+    <string name="physical_not_pass">体检不合格</string>
+    <string name="sure">确定</string>
+    <string name="physsical_again">重新体检</string>
 </resources>

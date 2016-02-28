@@ -76,6 +76,12 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
+            android:name=".activity.PhysicalExamActivity"
+            android:label="@string/title_activity_physical_todo"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
             android:name=".activity.PhysicalExamOverActivity"
             android:label="@string/title_activity_physical_over"
             android:screenOrientation="landscape"
@@ -88,6 +94,18 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
+            android:name=".activity.PhysicalExamPassActivity"
+            android:label="@string/title_activity_physical_pass"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activity.DispatchStateListActivity"
+            android:label="@string/title_activity_dispatch_state"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
             android:name=".activity.SearchResultActivity"
             android:label="@string/title_activity_serch_result"
             android:screenOrientation="landscape"
@@ -96,6 +114,30 @@
         <activity
             android:name=".activity.PhysicalExamNotPassActivity"
             android:label="@string/title_activity_physical_exam_not_pass" >
+        </activity>
+        <activity
+            android:name=".activity.PhysicalExamAskActivity"
+            android:label="@string/title_activity_physical_exam_ask"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activity.PhysicalExamNoteActivity"
+            android:label="@string/title_activity_physical_exam_ask"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activity.PhysicalExamCheckActivity"
+            android:label="@string/title_activity_physical_exam_ask"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activity.PhysicalExamResultActivity"
+            android:label="@string/title_activity_physical_exam_result"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 

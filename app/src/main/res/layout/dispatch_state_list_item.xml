@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:descendantFocusability="blocksDescendants"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/head_image"
+            android:layout_width="@dimen/head_size"
+            android:layout_height="@dimen/head_size"
+            android:layout_margin="@dimen/btn_padding"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_norse" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name_txt"
+                style="@style/txt_black_style"
+                android:text="姓名" />
+
+            <TextView
+                android:id="@+id/id_txt"
+                style="@style/txt_grey_small_style"
+                android:layout_marginTop="@dimen/btn_padding"
+                android:text="身份证：511003002020500" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.8"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/green_left_txt"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@color/colorGreen"
+            android:gravity="center"
+            android:text="血液血浆"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_midle" />
+
+        <TextView
+            android:id="@+id/green_right_txt"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:background="@color/colorGreen"
+            android:gravity="center"
+            android:text="胸片"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_midle" />
+    </LinearLayout>
+
+    <Button
+        android:clickable="true"
+        android:id="@+id/state_btn"
+        style="@style/btn_style"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="@dimen/btn_padding"
+        android:layout_marginRight="@dimen/btn_padding"
+        android:text="进入待体检" />
+</LinearLayout>

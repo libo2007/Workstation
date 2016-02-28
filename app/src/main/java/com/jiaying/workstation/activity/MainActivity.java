@@ -7,6 +7,7 @@ import android.widget.RadioGroup;
 import com.jiaying.workstation.R;
 import com.jiaying.workstation.fragment.BloodPlasmaCollectionFragment;
 import com.jiaying.workstation.fragment.DispatchFragment;
+import com.jiaying.workstation.fragment.PhysicalExamFragment;
 import com.jiaying.workstation.fragment.RegisterFragment;
 import com.jiaying.workstation.fragment.SearchFragment;
 
@@ -46,7 +47,8 @@ public class MainActivity extends BaseActivity {
                         fragmentManager.beginTransaction().replace(R.id.fragment_container, new RegisterFragment()).commit();
                         break;
                     case R.id.btn_3:
-
+                        //体检
+                        fragmentManager.beginTransaction().replace(R.id.fragment_container, new PhysicalExamFragment()).commit();
                         break;
                     case R.id.btn_4:
                         fragmentManager.beginTransaction().replace(R.id.fragment_container, new BloodPlasmaCollectionFragment()).commit();
