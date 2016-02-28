@@ -1,59 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.jiaying.workstation">
+    package="com.jiaying.workstation" >
 
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".activity.LaunchActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/title_activity_main"
             android:screenOrientation="landscape"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name=".activity.LoginActivity"
             android:label="@string/title_activity_main"
             android:screenOrientation="landscape"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name=".activity.FingerprintActivity"
             android:label="@string/title_activity_main"
             android:screenOrientation="landscape"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name=".activity.FaceCollectionActivity"
             android:label="@string/title_activity_main"
             android:screenOrientation="landscape"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name=".activity.IdentityCardActivity"
             android:label="@string/title_activity_main"
             android:screenOrientation="landscape"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name=".activity.BloodPlasmaMachineForNurseActivity"
             android:label="@string/title_activity_pulp_machine_for_nurse"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".activity.PulpMachineSelectActivity"
+            android:label="@string/title_activity_pulp_machine_for_nurse"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".activity.RegisterOverActivity"
+            android:label="@string/title_activity_pulp_machine_for_nurse"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".activity.PhysicalExamTodoActivity"
+            android:label="@string/title_activity_physical_todo"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".activity.PhysicalExamActivity"
+            android:label="@string/title_activity_physical_todo"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activity.PhysicalExamOverActivity"
+            android:label="@string/title_activity_physical_over"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".activity.PhysicalExamingActivity"
+            android:label="@string/title_activity_physical_examing"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".activity.PhysicalExamPassActivity"
+            android:label="@string/title_activity_physical_pass"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activity.DispatchStateListActivity"
+            android:label="@string/title_activity_dispatch_state"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activity.SearchResultActivity"
+            android:label="@string/title_activity_serch_result"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".activity.PhysicalExamNotPassActivity"
+            android:label="@string/title_activity_physical_exam_not_pass" >
+        </activity>
+        <activity
+            android:name=".activity.PhysicalExamAskActivity"
+            android:label="@string/title_activity_physical_exam_ask"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activity.PhysicalExamNoteActivity"
+            android:label="@string/title_activity_physical_exam_ask"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activity.PhysicalExamCheckActivity"
+            android:label="@string/title_activity_physical_exam_ask"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activity.PhysicalExamResultActivity"
+            android:label="@string/title_activity_physical_exam_result"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>

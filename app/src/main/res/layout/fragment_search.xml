@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/global_bg"
+    android:orientation="horizontal"
+    tools:context="com.jiaying.workstation.fragment.SearchFragment"
+    android:gravity="center">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="0.191"/>
+    <Button
+        android:id="@+id/search_btn"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="0.618"
+        style="@style/btn_style"
+        android:text="@string/chaxun" />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="0.191"/>
+</LinearLayout>

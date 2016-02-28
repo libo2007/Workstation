@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/global_bg"
+    android:orientation="vertical"
+    tools:context="com.jiaying.workstation.activity.PhysicalExamCheckActivity">
+
+    <include layout="@layout/comm_app_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@+id/head_image"
+            android:layout_width="@dimen/head_size"
+            android:layout_height="@dimen/head_size"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="@dimen/btn_padding"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_norse" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name_txt"
+                style="@style/txt_black_style"
+                android:text="姓名" />
+
+            <TextView
+                android:id="@+id/id_txt"
+                style="@style/txt_grey_small_style"
+                android:layout_marginTop="@dimen/btn_padding"
+                android:text="证件号：5112011970****9956" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/btn_padding"
+        android:text="询问健康状况记录"
+        android:textSize="@dimen/text_size_midle"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <View style="@style/line_grey_style" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/comm_title_height"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/txt_black_small_style"
+                    android:layout_width="@dimen/check_txt_width"
+                    android:layout_height="@dimen/comm_title_height"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_size_midle"
+                    android:textColor="@color/main_color"
+                    android:text="项目" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/global_bg" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/comm_title_height"
+                    android:gravity="center"
+                    android:textSize="@dimen/text_size_midle"
+                    android:layout_weight="1"
+                    android:textColor="@color/main_color"
+                    android:text="结果" />
+            </LinearLayout>
+
+            <View style="@style/line_grey_style" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/comm_title_height"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/txt_black_small_style"
+                    android:layout_width="@dimen/check_txt_width"
+                    android:layout_height="@dimen/comm_title_height"
+                    android:gravity="center"
+                    android:text="五官" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/global_bg" />
+
+                <RadioGroup
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/btn_padding"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="正常" />
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="不正常" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View style="@style/line_grey_style" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/comm_title_height"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/txt_black_small_style"
+                    android:layout_width="@dimen/check_txt_width"
+                    android:layout_height="@dimen/comm_title_height"
+                    android:gravity="center"
+                    android:text="皮肤" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/global_bg" />
+
+                <RadioGroup
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/btn_padding"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="正常" />
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="不正常" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View style="@style/line_grey_style" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/comm_title_height"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/txt_black_small_style"
+                    android:layout_width="@dimen/check_txt_width"
+                    android:layout_height="@dimen/comm_title_height"
+                    android:gravity="center"
+                    android:text="四肢" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/global_bg" />
+
+                <RadioGroup
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/btn_padding"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="正常" />
+
+                    <RadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="不正常" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <View style="@style/line_grey_style" />
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/copyright_view" />
+</LinearLayout>

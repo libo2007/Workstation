@@ -12,17 +12,14 @@ import android.widget.Button;
 import com.jiaying.workstation.R;
 import com.jiaying.workstation.activity.BloodPlasmaMachineForNurseActivity;
 import com.jiaying.workstation.activity.DispatchStateListActivity;
-import com.jiaying.workstation.activity.FingerprintActivity;
-import com.jiaying.workstation.activity.IdentityCardActivity;
 import com.jiaying.workstation.constant.IntentExtra;
 import com.jiaying.workstation.constant.TypeConstant;
 
 /**
- * 采浆
+ * 调度
  */
-public class BloodPlasmaCollectionFragment extends Fragment {
-    private Button nurse_login_btn;
-    private Button pulp_btn;
+public class PhysicalExamFragment extends Fragment {
+    private Button physical_exam_btn;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,30 +28,22 @@ public class BloodPlasmaCollectionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_plasma_collection, container, false);
-        nurse_login_btn = (Button) view.findViewById(R.id.nurse_login_btn);
-        nurse_login_btn.setOnClickListener(new goNuserLoginListener());
-        pulp_btn = (Button) view.findViewById(R.id.pulp_btn);
-        pulp_btn.setOnClickListener(new ClickListener());
+        View view = inflater.inflate(R.layout.fragment_physical_exam, container, false);
+        physical_exam_btn = (Button) view.findViewById(R.id.physical_exam_btn);
+        physical_exam_btn.setOnClickListener(new ClickListener());
         return view;
     }
 
-    //护士登录浆机
-    private class goNuserLoginListener implements View.OnClickListener {
-        @Override
-        public void onClick(View v) {
-            Intent it = new Intent(getActivity(), BloodPlasmaMachineForNurseActivity.class);
-            startActivity(it);
-        }
-    }
 
-    //献浆
+    //体检
     private class ClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
             Intent it = new Intent(getActivity(), DispatchStateListActivity.class);
-            it.putExtra(IntentExtra.EXTRA_STATE, TypeConstant.STATE_BLOODPLASMA_COLLECTION_TODO);
+            it.putExtra(IntentExtra.EXTRA_STATE, TypeConstant.STATE_PHYSICAL_EXAM_TODO);
             startActivity(it);
         }
     }
+
+
 }

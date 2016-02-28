@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/global_bg"
     android:orientation="vertical"
-    tools:context="com.jiaying.workstation.activity.FingerprintActivity">
+    tools:context="com.jiaying.workstation.activity.PhysicalExamResultActivity">
 
     <include layout="@layout/comm_app_title" />
 
@@ -47,34 +47,11 @@
         </LinearLayout>
     </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.191" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.618"
-                android:scaleType="fitCenter"
-                android:src="@mipmap/finger_print" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.191" />
-        </LinearLayout>
-
-    </RelativeLayout>
+        android:layout_weight="1"
+        ></LinearLayout>
 
     <include layout="@layout/copyright_view" />
 </LinearLayout>

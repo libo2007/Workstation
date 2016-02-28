@@ -10,17 +10,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.jiaying.workstation.R;
-import com.jiaying.workstation.activity.BloodPlasmaMachineForNurseActivity;
-import com.jiaying.workstation.activity.FingerprintActivity;
 import com.jiaying.workstation.activity.IdentityCardActivity;
 import com.jiaying.workstation.constant.IntentExtra;
 import com.jiaying.workstation.constant.TypeConstant;
 
 /**
- * 等级
+ * 查询
  */
-public class RegisterFragment extends Fragment {
-    private Button register_btn;
+public class SearchFragment extends Fragment {
+    private Button search_btn;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,18 +28,17 @@ public class RegisterFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_register, container, false);
-        register_btn = (Button) view.findViewById(R.id.register_btn);
-        register_btn.setOnClickListener(new ClickListener());
+        View view = inflater.inflate(R.layout.fragment_search, container, false);
+        search_btn = (Button) view.findViewById(R.id.search_btn);
+        search_btn.setOnClickListener(new ClickListener());
         return view;
     }
 
-    //登记 1.身份证 2.指纹 3.头像
     private class ClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
             Intent it = new Intent(getActivity(), IdentityCardActivity.class);
-            it.putExtra(IntentExtra.EXTRA_TYPE, TypeConstant.TYPE_REG);
+            it.putExtra(IntentExtra.EXTRA_TYPE, TypeConstant.TYPE_SEARCH);
             startActivity(it);
         }
     }
