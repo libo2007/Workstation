@@ -113,8 +113,20 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
+            android:name=".activity.PhysicalExamNoteActivity"
+            android:label="@string/title_activity_physical_exam_ask"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
             android:name=".activity.PhysicalExamCheckActivity"
-            android:label="@string/title_activity_physical_exam_check"
+            android:label="@string/title_activity_physical_exam_ask"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activity.PhysicalExamResultActivity"
+            android:label="@string/title_activity_physical_exam_result"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>

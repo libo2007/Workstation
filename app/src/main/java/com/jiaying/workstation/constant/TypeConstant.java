@@ -14,6 +14,10 @@ public class TypeConstant {
     public static final int TYPE_PHYSICAL_EXAM = 3;
     //查询
     public static final int TYPE_SEARCH = 5;
+    //体检完成后，献浆员打指纹
+    public static final int TYPE_PHYSICAL_EXAM_SUBMIT_XJ = 6;
+    //体检完成后，献浆员打指纹后医生打指纹
+    public static final int TYPE_PHYSICAL_EXAM_SUBMIT_DOC = 7;
 
 
     //登记完成
