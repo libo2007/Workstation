@@ -46,15 +46,18 @@
 
         </LinearLayout>
     </LinearLayout>
+
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/btn_margin">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/btn_margin">
 
             <TextView
                 android:layout_width="0dp"
@@ -78,8 +81,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/btn_margin">
+            android:layout_height="0dp"
+            android:paddingTop="@dimen/btn_margin"
+            android:layout_weight="1">
 
             <TextView
                 android:layout_width="0dp"
@@ -100,10 +104,12 @@
                 android:layout_weight="0.191" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/btn_margin">
+            android:layout_height="0dp"
+            android:paddingTop="@dimen/btn_margin"
+            android:layout_weight="1">
 
             <TextView
                 android:layout_width="0dp"
@@ -111,27 +117,25 @@
                 android:layout_weight="0.191" />
 
 
-            <LinearLayout
+            <Button
+                style="@style/btn_style"
                 android:layout_width="0dp"
-                android:orientation="horizontal"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.618">
-                <Button
-                    style="@style/btn_style"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_margin="@dimen/btn_margin"
-                    android:text="保存到服务器" />
-                <Button
-                    android:id="@+id/submit_btn"
-                    android:layout_margin="@dimen/btn_margin"
-                    style="@style/btn_style"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="提交审核" />
-            </LinearLayout>
+                android:layout_weight="0.3"
+                android:text="保存到服务器" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="0.018" />
+
+            <Button
+                android:id="@+id/submit_btn"
+                style="@style/btn_style"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="提交审核" />
 
 
             <TextView
