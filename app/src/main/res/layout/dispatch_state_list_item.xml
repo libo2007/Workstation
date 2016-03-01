@@ -73,6 +73,15 @@
 
     <Button
         android:clickable="true"
+        android:id="@+id/call_btn"
+        style="@style/btn_style"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="@dimen/btn_padding"
+        android:layout_marginRight="@dimen/btn_padding"
+        android:text="呼叫" />
+
+    <Button
+        android:clickable="true"
         android:id="@+id/state_btn"
         style="@style/btn_style"
         android:layout_width="wrap_content"

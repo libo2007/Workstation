@@ -69,6 +69,7 @@ public class DispathStateListAdapter extends BaseAdapter {
             holder.id_txt = (TextView) convertView.findViewById(R.id.id_txt);
             holder.green_left_txt = (TextView) convertView.findViewById(R.id.green_left_txt);
             holder.green_right_txt = (TextView) convertView.findViewById(R.id.green_right_txt);
+            holder.call_btn = (Button) convertView.findViewById(R.id.call_btn);
             holder.state_btn = (Button) convertView.findViewById(R.id.state_btn);
             convertView.setTag(holder);
         } else {
@@ -171,6 +172,7 @@ public class DispathStateListAdapter extends BaseAdapter {
         TextView name_txt;
         TextView id_txt;
         Button state_btn;
+        Button call_btn;
         TextView green_left_txt;
         TextView green_right_txt;
     }
