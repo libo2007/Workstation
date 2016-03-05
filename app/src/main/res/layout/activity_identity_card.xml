@@ -17,11 +17,15 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/state_txt"
+            style="@style/txt_black_style"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.191" />
 
         <ImageView
+            android:id="@+id/photo_image"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="center"
@@ -31,6 +35,9 @@
             android:src="@mipmap/identity_card" />
 
         <TextView
+            style="@style/txt_black_style"
+            android:gravity="center"
+            android:id="@+id/result_txt"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.191" />
