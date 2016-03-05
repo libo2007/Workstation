@@ -15,6 +15,7 @@ import com.jiaying.workstation.engine.ProxyIdentification;
 import com.jiaying.workstation.entity.IdentityCard;
 import com.jiaying.workstation.interfaces.Iidentification;
 import com.jiaying.workstation.interfaces.IidentificationCallback;
+import com.jiaying.workstation.utils.CountDownTimerUtil;
 import com.jiaying.workstation.utils.MyLog;
 import com.jiaying.workstation.utils.SetTopView;
 
@@ -29,17 +30,22 @@ public class IdentityCardActivity extends BaseActivity implements Iidentificatio
     private TextView state_txt;
     private ImageView photo_image;
     private  Iidentification iidentification = null;
+    private CountDownTimerUtil countDownTimerUtil;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        iidentification  = new LDIdentification(this, this);
-        ProxyIdentification proxyIdentification = new ProxyIdentification(iidentification);
-        proxyIdentification.operateID();
+
     }
 
     @Override
     public void initVariables() {
-
+        //身份证读取预备
+        iidentification  = new LDIdentification(this, this);
+        ProxyIdentification proxyIdentification = new ProxyIdentification(iidentification);
+        proxyIdentification.read();
+        //倒计时开始
+        countDownTimerUtil = new CountDownTimerUtil(result_txt,this);
+        countDownTimerUtil.start();
     }
 
     @Override
@@ -66,6 +72,7 @@ public class IdentityCardActivity extends BaseActivity implements Iidentificatio
             MyLog.e(TAG, "info is null");
         }
         if (card != null) {
+            countDownTimerUtil.cancel();
             MyLog.e(TAG, "card info:" + card.toString());
             result_txt.setText(card.toString());
             photo_image.setImageBitmap(card.getPhotoBmp());
