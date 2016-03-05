@@ -109,6 +109,10 @@ public class IdentityCardActivity extends BaseActivity implements Iidentificatio
        if(iidentification != null){
            iidentification.close();
        }
+        if(countDownTimerUtil != null){
+            countDownTimerUtil.cancel();
+            countDownTimerUtil=null;
+        }
     }
 }
 
