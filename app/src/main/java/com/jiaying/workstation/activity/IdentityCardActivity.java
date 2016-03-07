@@ -74,10 +74,9 @@ public class IdentityCardActivity extends BaseActivity implements Iidentificatio
         if (card != null) {
             countDownTimerUtil.cancel();
             MyLog.e(TAG, "card info:" + card.toString());
-            result_txt.setText(card.toString());
-            photo_image.setImageBitmap(card.getPhotoBmp());
-            //认证通过后跳到指纹界面
-//            new Handler().postDelayed(new runnable(), 3000);
+            result_txt.setText("姓名：" + card.getName() + " 身份证：" + card.getIdcardno()) ;
+//            photo_image.setImageBitmap(card.getPhotoBmp());
+            new Handler().postDelayed(new runnable(), 3000);
         } else {
             MyLog.e(TAG, "card is null");
         }
@@ -106,9 +105,9 @@ public class IdentityCardActivity extends BaseActivity implements Iidentificatio
     @Override
     protected void onDestroy() {
         super.onDestroy();
-       if(iidentification != null){
-           iidentification.close();
-       }
+        if(iidentification != null){
+            iidentification.close();
+        }
         if(countDownTimerUtil != null){
             countDownTimerUtil.cancel();
             countDownTimerUtil=null;
