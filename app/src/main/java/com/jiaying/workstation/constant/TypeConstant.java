@@ -20,6 +20,7 @@ public class TypeConstant {
     public static final int TYPE_PHYSICAL_EXAM_SUBMIT_DOC = 7;
 
 
+
     //登记完成
     public static final int STATE_REG_OVER = 1001;
     //待体检

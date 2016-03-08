@@ -32,7 +32,18 @@ public class DispatchStateListActivity extends BaseActivity {
     @Override
     public void initVariables() {
         state = getIntent().getIntExtra(IntentExtra.EXTRA_STATE, 0);
-        MyLog.e(TAG,"state:" + state);
+        MyLog.e(TAG, "state:" + state);
+    }
+
+    @Override
+    public void initView() {
+
+        setContentView(R.layout.activity_dispatch_state_list);
+        new SetTopView(this, R.string.title_activity_dispatch_state, true);
+        mListView = (ListView) findViewById(R.id.listview);
+        mList = new ArrayList<User>();
+        mAdapter = new DispathStateListAdapter(mList, this);
+        mListView.setAdapter(mAdapter);
         mAdapter.setmState(state);
         switch (state) {
             case TypeConstant.STATE_REG_OVER:
@@ -68,18 +79,6 @@ public class DispatchStateListActivity extends BaseActivity {
                 new SetTopView(this, R.string.title_activity_bloodplasma_collection_over, true);
                 break;
         }
-    }
-
-    @Override
-    public void initView() {
-        setContentView(R.layout.activity_dispatch_state_list);
-        new SetTopView(this, R.string.title_activity_dispatch_state, true);
-        mListView = (ListView) findViewById(R.id.listview);
-        mList = new ArrayList<User>();
-        mAdapter = new DispathStateListAdapter(mList, this);
-        mListView.setAdapter(mAdapter);
-
-
     }
 
     @Override
