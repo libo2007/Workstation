@@ -2,6 +2,7 @@ package com.jiaying.workstation.activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
@@ -38,6 +39,15 @@ public class FingerprintActivity extends BaseActivity implements IfingerPrintCal
     private TextView result_txt;
     private TextView state_txt;
     private ImageView photo_image;
+
+
+    private TextView nameTextView = null;
+    private TextView idCardNoTextView = null;
+    private ImageView avaterImageView = null;
+    private String donorName = null;
+    private Bitmap avatarBitmap = null;
+    private String idCardNO = null;
+    private int source;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,9 +60,12 @@ public class FingerprintActivity extends BaseActivity implements IfingerPrintCal
         ifingerPrint  = new LDFingerPrint(this,this);
         ProxyFingerPrint proxyFingerPrint = new ProxyFingerPrint(ifingerPrint);
         proxyFingerPrint.read();
-        //倒计时开始
-        countDownTimerUtil = new CountDownTimerUtil(result_txt,this);
-        countDownTimerUtil.start();
+
+        //
+        Intent donorInfoIntent = getIntent();
+        source = donorInfoIntent.getIntExtra("source", 0);
+        donorName = donorInfoIntent.getStringExtra("donorName");
+        idCardNO = donorInfoIntent.getStringExtra("idCardNO");
     }
 
     @Override
@@ -62,6 +75,36 @@ public class FingerprintActivity extends BaseActivity implements IfingerPrintCal
         result_txt = (TextView) findViewById(R.id.result_txt);
         state_txt = (TextView) findViewById(R.id.state_txt);
         photo_image = (ImageView) findViewById(R.id.photo_image);
+        //倒计时开始
+        countDownTimerUtil = new CountDownTimerUtil(result_txt,this);
+        countDownTimerUtil.start();
+
+
+        Intent donorInfoIntent = getIntent();
+
+        switch (source) {
+            case TypeConstant.TYPE_REG:
+                nameTextView = (TextView) this.findViewById(R.id.name_txt);
+                nameTextView.setText(donorName);
+                avaterImageView = (ImageView) this.findViewById(R.id.head_image);
+                avaterImageView.setImageBitmap(avatarBitmap);
+                idCardNoTextView = (TextView) this.findViewById(R.id.id_txt);
+                idCardNoTextView.setText(idCardNO);
+
+
+
+                Bitmap tempBitmap = donorInfoIntent.getParcelableExtra("avatar");
+                Matrix matrix = new Matrix();
+                matrix.postScale(1.0f, 1.0f);
+                avatarBitmap = Bitmap.createBitmap(tempBitmap, 0, 0, tempBitmap.getWidth(),
+                        tempBitmap.getHeight(), matrix, true);
+
+                break;
+        }
+
+        //认证通过后跳到主界面
+        mRunnable = new runnable();
+        mHandler.postDelayed(mRunnable, 3000);
 
 
     }

@@ -2,8 +2,10 @@ package com.jiaying.workstation.engine;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 
 import com.jiaying.workstation.entity.IdentityCard;
@@ -45,10 +47,8 @@ public class LDIdentification implements Iidentification {
     private void oPenTask() {
         String resutl = "";
         if (ZAZAPI.InitIDCardDevice(null)) {
-            resutl = "准备读卡器成功";
             resutl = "打开读卡器成功";
         } else {
-            resutl = "准备读卡器失败";
             resutl = "打开读卡器失败";
             ZAZAPI.CloseIDCardDevice(null);
         }
@@ -230,6 +230,7 @@ public class LDIdentification implements Iidentification {
             card.setMouth(LDAPI.idcard.birthday.substring(4, 6));
             card.setDay(LDAPI.idcard.birthday.substring(6, 8));
             card.setIdcardno(LDAPI.idcard.idcardno);
+            Bitmap bit = ZAZAPI.getPhotoBmp();
             card.setPhotoBmp(ZAZAPI.getPhotoBmp());
             mCallback.onResultInfo(null, card);
             LDAPI.idcard = LDAPI.idcard;
