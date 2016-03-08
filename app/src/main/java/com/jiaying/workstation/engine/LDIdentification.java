@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.speech.tts.TextToSpeech;
 import android.util.Log;
 
 import com.jiaying.workstation.entity.IdentityCard;
@@ -18,7 +17,7 @@ import com.jiaying.workstation.utils.LDAPI;
  * 邮箱：353510746@qq.com
  * 功能：深圳龙盾平板
  */
-public class LDIdentification implements Iidentification {
+public class LDIdentification  {
     private IidentificationCallback mCallback;
     private Activity mActivity;
     long ssart = System.currentTimeMillis();
@@ -31,31 +30,63 @@ public class LDIdentification implements Iidentification {
 
     private LDAPI ZAZAPI;
 
-    public LDIdentification(IidentificationCallback mCallback, Activity mActivity) {
-        this.mCallback = mCallback;
+    public LDIdentification(Activity mActivity) {
+
         this.mActivity = mActivity;
         ZAZAPI = new LDAPI(mActivity, 4, 1);
         readflag = true;
         thread = new HandlerThread("MyHandlerThread");
         thread.start();
-        objHandler_card = new Handler();
-        ZAZAPI.card_power_on();
-        oPenTask();
+        objHandler_card = new Handler(thread.getLooper());
+
     }
 
-    //打开读卡器
-    private void oPenTask() {
+    public void setOnRead(IidentificationCallback mCallback) {
+        this.mCallback = mCallback;
+    }
+
+    //读卡器上电
+    public int electrifyIdReader() {
+        String resutl = "";
+
+        // 给身份证模块上电，这里需要判断
+        if (1 == ZAZAPI.card_power_on()) {
+            return 1;
+//            mCallback.onResultInfo(resutl, null);
+        } else {
+            resutl = "身份证模块上电失败";
+            return 0;
+//            mCallback.onResultInfo(resutl, null);
+        }
+    }
+
+    //读卡器断电
+    public int unelectrifyIdReader() {
+        if (ZAZAPI != null) {
+            return ZAZAPI.card_power_off();
+        }
+        else{
+            return -1;
+        }
+    }
+
+
+// 打开身份证读卡器
+    public boolean openIdReader() {
         String resutl = "";
         if (ZAZAPI.InitIDCardDevice(null)) {
             resutl = "打开读卡器成功";
+//            mCallback.onResultInfo(resutl, null);
+            return true;
         } else {
             resutl = "打开读卡器失败";
-            ZAZAPI.CloseIDCardDevice(null);
+
+//            mCallback.onResultInfo(resutl, null);
+            return false;
         }
-        mCallback.onResultInfo(resutl, null);
     }
 
-    @Override
+
     public void read() {
         //开始读取身份证
         try {
@@ -64,18 +95,23 @@ public class LDIdentification implements Iidentification {
             e.printStackTrace();
         }
         readflag = false;
-        readsfztask();
+        readIdCardInfo();
     }
-
-    @Override
-    public void close() {
-        if (ZAZAPI != null) {
-            ZAZAPI.card_power_off();
-        }
+    
+    public boolean closeIdReader() {
+        //关闭身份证模块
         objHandler_card.removeCallbacks(cardTasks);
+        if (ZAZAPI.CloseIDCardDevice(null)) {
+            return true;
+        } else {
+            return false;
+        }
+
+
     }
 
-    private void readsfztask() {
+
+    private void readIdCardInfo() {
         ssart = System.currentTimeMillis();
         ssend = System.currentTimeMillis();
         objHandler_card.postDelayed(cardTasks, 0);
@@ -99,64 +135,42 @@ public class LDIdentification implements Iidentification {
             if (readstatus == 0) {
 //                resettextdata();
                 temp += "请刷读身份证";
-                mCallback.onResultInfo(temp, null);
+//                mCallback.onResultInfo(temp, null);
                 readstatus++;
             } else if (readstatus == 1)//寻卡
             {
                 ssart = System.currentTimeMillis();
-                //ZAZAPI.Read_ICSFZ_PHYIDNumber();
 
-//					ret  =ZAZAPI.getIDbaseshenzhen(sfznum);
-//					if(ret==1)
-//					{
-//						for(int i=0;i<8;i++)
-//						{
-//							sfztemp+= Integer.toHexString(sfznum[i]&0xff)+" ";
-//						}
-//						ssmtvMessage.setText("卡号信息："+sfztemp);
-//					}
-//					else
-//					{
-//						ssmtvMessage.setText("卡号信息：");
-//					}
+                //进行寻卡操作，找到卡返回true，未找到返回false。
                 if (ZAZAPI.FindIDCard())
                     readstatus++;
                 else {
-
                     readstatus = 1;
                 }
-
-
                 temp += "请刷读身份证";
-                mCallback.onResultInfo(temp, null);
+//                mCallback.onResultInfo(temp, null);
 
             } else if (readstatus == 2) {    //读卡计时开始
-
                 readstatus++;
             } else if (readstatus == 3) {    //开始选卡
-
+                //寻找到卡后，需要选定身份证卡，如果选定成功则为true，选定失败则为false。
                 if (ZAZAPI.SelectCard())
                     readstatus++;
                 else
                     readstatus = 3;
-
                 ssend = System.currentTimeMillis();
                 timecount = (ssend - ssart);
                 Log.e("time = ", "" + timecount);
-                if (timecount > 5000) {
+                if (timecount > 3000) {
                     Log.e("time = ", "" + "over");
                     temp += "读卡超时" + "\r\n";
                     readstatus = 0;
-//                    inerr++;
                 }
-//                temp = Sstr;
-//                temp = temp + Strok + Integer.toString(inok) + "\r\n";
-//                temp = temp + Strerr + Integer.toString(inerr) + "\r\n";
+
                 temp += "开始选卡中" + "\r\n";
                 temp += "请等待";
-//                mtvMessage.setText(temp);
-                mCallback.onResultInfo(temp, null);
-            } else if (readstatus == 4) {    //读卡内容
+                //读取身份证卡的信息，返回职位IDCard
+            } else if (readstatus == 4) {
                 LDAPI.idcard = ZAZAPI.readCard();
                 if (LDAPI.idcard != null)
                     readstatus++;
@@ -165,35 +179,28 @@ public class LDIdentification implements Iidentification {
 
                 ssend = System.currentTimeMillis();
                 timecount = (ssend - ssart);
-                if (timecount > 5000) {
+                if (timecount > 3000) {
                     temp += "读卡超时" + "\r\n";
-                    mCallback.onResultInfo(temp, null);
+//                    mCallback.onResultInfo(temp, null);
                     readstatus = 0;
-//                    inerr++;
                 } else {
                     if (readstatus == 5) {
                         timecount = (ssend - ssart);
                         times = timecount;
                         readstatus++;
-//                        inok++;
-//                        temp = Sstr;
-//                        temp = temp + Strok + Integer.toString(inok) + "\r\n";
-//                        temp = temp + Strerr + Integer.toString(inerr) + "\r\n";
+
                         temp += "读卡完成" + "\r\n";
                         temp += "耗时:" + timecount + "ms";
-                        mCallback.onResultInfo(temp, null);
+//                        mCallback.onResultInfo(temp, null);
                         sfzdest();
                     } else {
                         readstatus = 4;
-//                        temp = Sstr;
-//                        temp = temp + Strok + Integer.toString(inok) + "\r\n";
-//                        temp = temp + Strerr + Integer.toString(inerr) + "\r\n";
+
                         temp += "正在读卡中";
-                        mCallback.onResultInfo(temp, null);
+//                        mCallback.onResultInfo(temp, null);
                     }
                 }
-//                mtvMessage.setText(temp);
-                mCallback.onResultInfo(temp, null);
+//                mCallback.onResultInfo(temp, null);
             } else// if(readstatus==5)
             {
                 if (ZAZAPI.readCard() != null)
@@ -202,13 +209,10 @@ public class LDIdentification implements Iidentification {
                 else
                     readstatus = 0;
 
-//                temp = Sstr;
-//                temp = temp + Strok + Integer.toString(inok) + "\r\n";
-//                temp = temp + Strerr + Integer.toString(inerr) + "\r\n";
-//                temp = temp + Strtime + times + "ms\r\n";
+
                 temp += "请拿起身份证重新刷卡";
 //                mtvMessage.setText(temp);
-                mCallback.onResultInfo(temp, null);
+//                mCallback.onResultInfo(temp, null);
             }
             objHandler_card.postDelayed(cardTasks, 200);
         }

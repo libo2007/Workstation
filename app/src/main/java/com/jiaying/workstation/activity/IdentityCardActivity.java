@@ -77,22 +77,23 @@ public class IdentityCardActivity extends BaseActivity implements Iidentificatio
     @Override
     public void onResultInfo(String info, IdentityCard card) {
         //身份证信息
-//        if (!TextUtils.isEmpty(info)) {
-//            MyLog.e(TAG, "info:" + info);
-////            state_txt.setText(info);
-//        } else {
-//            MyLog.e(TAG, "info is null");
-//        }
+
         if (card != null) {
-            countDownTimerUtil.cancel();
+            IdentityCardActivity.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    countDownTimerUtil.cancel();
+
+                }
+            });
             MyLog.e(TAG, "card info:" + card.toString());
-//            result_txt.setText(card.toString());
-//            photo_image.setImageBitmap(card.getPhotoBmp());
+
             donorName = card.getName();
             avtar = card.getPhotoBmp();
             idCardNO = card.getIdcardno();
             //认证通过后跳到指纹界面
             new Handler().postDelayed(new runnable(), 10);
+
         } else {
             MyLog.e(TAG, "card is null");
         }
