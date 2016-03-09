@@ -36,7 +36,7 @@ public class FingerprintActivity extends BaseActivity implements IfingerPrintCal
 
 
     private IfingerPrint ifingerPrint = null;
-    private CountDownTimerUtil countDownTimerUtil;
+//    private CountDownTimerUtil countDownTimerUtil;
     private TextView result_txt;
     private TextView state_txt;
     private ImageView photo_image;
@@ -92,8 +92,8 @@ public class FingerprintActivity extends BaseActivity implements IfingerPrintCal
         state_txt = (TextView) findViewById(R.id.state_txt);
         photo_image = (ImageView) findViewById(R.id.photo_image);
         //倒计时开始
-        countDownTimerUtil = new CountDownTimerUtil(result_txt, this);
-        countDownTimerUtil.start();
+//        countDownTimerUtil = new CountDownTimerUtil(result_txt, this);
+//        countDownTimerUtil.start();
 
 
         switch (source) {
@@ -118,10 +118,10 @@ public class FingerprintActivity extends BaseActivity implements IfingerPrintCal
 
 
     @Override
-    public void onFingerPrintInfo(Bitmap bitmap, String info) {
+    public void onFingerPrintInfo(Bitmap bitmap, String info,String timeout) {
         //指纹识别结果
         if (bitmap != null) {
-            countDownTimerUtil.cancel();
+//            countDownTimerUtil.cancel();
             photo_image.setImageBitmap(bitmap);
 
             //认证通过后跳到
@@ -133,6 +133,10 @@ public class FingerprintActivity extends BaseActivity implements IfingerPrintCal
         if (!TextUtils.isEmpty(info)) {
             state_txt.setText(info);
         }
+        if(!TextUtils.isEmpty(timeout)){
+            result_txt.setText(timeout);
+        }
+
     }
 
     private class runnable implements Runnable {
@@ -168,6 +172,14 @@ public class FingerprintActivity extends BaseActivity implements IfingerPrintCal
                 startActivity(it);
                 finish();
             }
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(ifingerPrint != null){
+            ifingerPrint.close();
         }
     }
 }
