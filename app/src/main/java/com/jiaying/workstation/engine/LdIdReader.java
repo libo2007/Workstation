@@ -35,7 +35,7 @@ public class LdIdReader implements IidReader {
         cardHandler = new Handler(readCardThread.getLooper());
     }
 
-    public synchronized static LdIdReader LdIdReader(Activity activity) {
+    public synchronized static LdIdReader getInstance(Activity activity) {
         if (ldIdReader == null) {
             ldIdReader = new LdIdReader(activity);
         }

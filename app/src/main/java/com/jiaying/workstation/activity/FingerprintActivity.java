@@ -21,7 +21,6 @@ import com.jiaying.workstation.engine.LDFingerPrint;
 import com.jiaying.workstation.engine.ProxyFingerPrint;
 import com.jiaying.workstation.interfaces.IfingerPrint;
 import com.jiaying.workstation.interfaces.IfingerPrintCallback;
-import com.jiaying.workstation.interfaces.Iidentification;
 import com.jiaying.workstation.utils.CountDownTimerUtil;
 import com.jiaying.workstation.utils.MyLog;
 import com.jiaying.workstation.utils.SetTopView;

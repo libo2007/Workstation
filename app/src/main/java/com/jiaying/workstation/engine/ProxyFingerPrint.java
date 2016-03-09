@@ -1,7 +1,6 @@
 package com.jiaying.workstation.engine;
 
 import com.jiaying.workstation.interfaces.IfingerPrint;
-import com.jiaying.workstation.interfaces.Iidentification;
 
 /**
  * 作者：lenovo on 2016/3/4 13:27
