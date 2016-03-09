@@ -10,6 +10,8 @@ import com.jiaying.workstation.entity.IdentityCard;
  * 功能：身份证回调
  */
 public interface IfingerPrintCallback {
-    //指纹图像以及特征
-    public void onFingerPrintInfo(Bitmap bitmap, String info);
+    /*
+    bitmap:指纹，info：提示信息；timeout超时
+     */
+    public void onFingerPrintInfo(Bitmap bitmap, String info,String timeout);
 }

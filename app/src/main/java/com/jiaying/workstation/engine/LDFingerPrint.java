@@ -16,6 +16,7 @@ import android.os.HandlerThread;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.jiaying.workstation.constant.Constants;
 import com.jiaying.workstation.interfaces.IfingerPrint;
 import com.jiaying.workstation.interfaces.IfingerPrintCallback;
 import com.za.android060;
@@ -174,10 +175,10 @@ public class LDFingerPrint implements IfingerPrint {
             ssend = System.currentTimeMillis();
             timecount = (ssend - ssart);
             if (fpflag) return;
-            if (timecount > 10000) {
+            if (timecount > Constants.COUNT_DOWN_TIME) {
                 temp = "读指纹等待超时" + "\r\n";
 //                mtvMessage.setText(temp);
-                mCallback.onFingerPrintInfo(null, temp);
+                mCallback.onFingerPrintInfo(null, temp,null);
                 return;
             }
             int nRet = 0;
@@ -190,28 +191,28 @@ public class LDFingerPrint implements IfingerPrint {
                 a6.ZAZImgData2BMP(Image, str);
                 temp = "获取图像成功";
 //                mtvMessage.setText(temp);
-                mCallback.onFingerPrintInfo(null, temp);
+                mCallback.onFingerPrintInfo(null, temp,null);
                 Bitmap bmpDefaultPic;
                 bmpDefaultPic = BitmapFactory.decodeFile(str, null);
 //                mFingerprintIv.setImageBitmap(bmpDefaultPic);
-                mCallback.onFingerPrintInfo(bmpDefaultPic, null);
+                mCallback.onFingerPrintInfo(bmpDefaultPic, null,null);
             } else if (nRet == a6.PS_NO_FINGER) {
-                temp = "正在读取指纹中   剩余时间:" + ((10000 - (ssend - ssart))) / 1000 + "s";
+                temp = "正在读取指纹中   剩余时间:" + ((Constants.COUNT_DOWN_TIME - (ssend - ssart))) / 1000 + "s";
 //                mtvMessage.setText(temp);
-                mCallback.onFingerPrintInfo(null, temp);
+                mCallback.onFingerPrintInfo(null, null,temp);
                 objHandler_fp.postDelayed(fpTasks, 100);
             } else if (nRet == a6.PS_GET_IMG_ERR) {
                 temp = "获取图像错误";
                 Log.d(TAG, temp + "2: " + nRet);
                 objHandler_fp.postDelayed(fpTasks, 100);
                 //mtvMessage.setText(temp);
-                mCallback.onFingerPrintInfo(null, temp);
+                mCallback.onFingerPrintInfo(null, temp,null);
                 return;
             } else {
                 temp = "设备异常";
                 Log.d(TAG, temp + "2: " + nRet);
 //                mtvMessage.setText(temp);
-                mCallback.onFingerPrintInfo(null, temp);
+                mCallback.onFingerPrintInfo(null, temp,null);
                 return;
             }
 
