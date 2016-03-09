@@ -6,6 +6,8 @@ package com.jiaying.workstation.constant;
  * 功能：类型常量
  */
 public class TypeConstant {
+    //登陆
+    public static final int TYPE_LOG = 0;
     //登记
     public static final int  TYPE_REG = 1;
     //采浆
