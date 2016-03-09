@@ -4,28 +4,26 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.TextUtils;
+import android.speech.tts.TextToSpeech;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jiaying.workstation.R;
 import com.jiaying.workstation.constant.IntentExtra;
 import com.jiaying.workstation.constant.TypeConstant;
-import com.jiaying.workstation.engine.LDIdentification;
-import com.jiaying.workstation.engine.ProxyIdentification;
+import com.jiaying.workstation.engine.LdIdReader;
+import com.jiaying.workstation.engine.ProxyIdReader;
 import com.jiaying.workstation.entity.IdentityCard;
-import com.jiaying.workstation.interfaces.Iidentification;
-import com.jiaying.workstation.interfaces.IidentificationCallback;
+import com.jiaying.workstation.interfaces.IidReader;
+import com.jiaying.workstation.interfaces.OnReadCallback;
 import com.jiaying.workstation.utils.CountDownTimerUtil;
 import com.jiaying.workstation.utils.MyLog;
 import com.jiaying.workstation.utils.SetTopView;
 
-import org.w3c.dom.Text;
-
 /*
 身份证模块
  */
-public class IdentityCardActivity extends BaseActivity implements IidentificationCallback {
+public class IdentityCardActivity extends BaseActivity implements OnReadCallback {
     private static final String TAG = "IdentityCardActivity";
     private TextView result_txt;
     private TextView state_txt;
@@ -33,21 +31,24 @@ public class IdentityCardActivity extends BaseActivity implements Iidentificatio
     private String donorName;
     private Bitmap avtar;
     private String idCardNO;
-    private Iidentification iidentification = null;
+    private ProxyIdReader proxyIdReader;
     private CountDownTimerUtil countDownTimerUtil;
-    private ProxyIdentification proxyIdentificatio;
+    private IidReader iidReader;
+    public static TextToSpeech mTts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
     public void initVariables() {
         //身份证读取预备
-        iidentification = new LDIdentification(this, this);
-        proxyIdentificatio = new ProxyIdentification(iidentification);
+        iidReader = LdIdReader.getInstance(this);
+        proxyIdReader = ProxyIdReader.getInstance(iidReader);
+        proxyIdReader.setOnReadCallback(this);
+        proxyIdReader.open();
+        proxyIdReader.read();
     }
 
     @Override
@@ -69,28 +70,28 @@ public class IdentityCardActivity extends BaseActivity implements Iidentificatio
     @Override
     protected void onResume() {
         super.onResume();
-        proxyIdentificatio.read();
+
+
         countDownTimerUtil.start();
+
 
     }
 
     @Override
-    public void onResultInfo(String info, IdentityCard card) {
-        //身份证信息
-
-        if (card != null) {
+    public void onRead(IdentityCard identityCard) {
+        proxyIdReader.close();
+        if (identityCard != null) {
             IdentityCardActivity.this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     countDownTimerUtil.cancel();
-
                 }
             });
-            MyLog.e(TAG, "card info:" + card.toString());
+            MyLog.e(TAG, "card info:" + identityCard.toString());
 
-            donorName = card.getName();
-            avtar = card.getPhotoBmp();
-            idCardNO = card.getIdcardno();
+            donorName = identityCard.getName();
+            avtar = identityCard.getPhotoBmp();
+            idCardNO = identityCard.getIdcardno();
             //认证通过后跳到指纹界面
             new Handler().postDelayed(new runnable(), 10);
 
@@ -122,11 +123,15 @@ public class IdentityCardActivity extends BaseActivity implements Iidentificatio
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        iidReader.close();
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (iidentification != null) {
-            iidentification.close();
-        }
+        iidReader.close();
         if (countDownTimerUtil != null) {
             countDownTimerUtil.cancel();
             countDownTimerUtil = null;
