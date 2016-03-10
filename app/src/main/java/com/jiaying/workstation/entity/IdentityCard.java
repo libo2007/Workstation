@@ -1,7 +1,6 @@
 package com.jiaying.workstation.entity;
 
 import android.graphics.Bitmap;
-import android.provider.SearchRecentSuggestions;
 
 import java.io.Serializable;
 
@@ -15,7 +14,7 @@ public class IdentityCard implements Serializable {
     private String sex;
     private String nation;
     private String year;
-    private String mouth;
+    private String month;
     private String day;
     private String addr;
     private String idcardno;
@@ -54,12 +53,12 @@ public class IdentityCard implements Serializable {
         this.year = year;
     }
 
-    public String getMouth() {
-        return mouth;
+    public String getMonth() {
+        return month;
     }
 
-    public void setMouth(String mouth) {
-        this.mouth = mouth;
+    public void setMonth(String month) {
+        this.month = month;
     }
 
     public String getDay() {
@@ -109,7 +108,7 @@ public class IdentityCard implements Serializable {
                 ", sex='" + sex + '\'' +
                 ", nation='" + nation + '\'' +
                 ", year='" + year + '\'' +
-                ", mouth='" + mouth + '\'' +
+                ", month='" + month + '\'' +
                 ", day='" + day + '\'' +
                 ", addr='" + addr + '\'' +
                 ", idcardno='" + idcardno + '\'' +

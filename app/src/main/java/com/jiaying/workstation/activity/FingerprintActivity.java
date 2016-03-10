@@ -5,36 +5,30 @@ import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jiaying.workstation.R;
 import com.jiaying.workstation.constant.IntentExtra;
 import com.jiaying.workstation.constant.TypeConstant;
-import com.jiaying.workstation.engine.LDFingerPrint;
-import com.jiaying.workstation.engine.ProxyFingerPrint;
-import com.jiaying.workstation.interfaces.IfingerPrint;
-import com.jiaying.workstation.interfaces.IfingerPrintCallback;
-import com.jiaying.workstation.utils.CountDownTimerUtil;
+import com.jiaying.workstation.engine.LdFingerprintReader;
+import com.jiaying.workstation.engine.ProxyFingerprintReader;
+import com.jiaying.workstation.interfaces.IfingerprintReader;
+import com.jiaying.workstation.interfaces.OnFingerprintReadCallback;
 import com.jiaying.workstation.utils.MyLog;
 import com.jiaying.workstation.utils.SetTopView;
 
 /*
 指纹认证模块
  */
-public class FingerprintActivity extends BaseActivity implements IfingerPrintCallback {
+public class FingerprintActivity extends BaseActivity implements OnFingerprintReadCallback {
     private static final String TAG = "FingerprintActivity";
     private Handler mHandler = new Handler();
     private Runnable mRunnable = null;
 
 
-    private IfingerPrint ifingerPrint = null;
+    private IfingerprintReader ifingerprintReader = null;
 //    private CountDownTimerUtil countDownTimerUtil;
     private TextView result_txt;
     private TextView state_txt;
@@ -76,9 +70,9 @@ public class FingerprintActivity extends BaseActivity implements IfingerPrintCal
         }
 
         //指纹识别准备
-        ifingerPrint = new LDFingerPrint(this, this);
-        ProxyFingerPrint proxyFingerPrint = new ProxyFingerPrint(ifingerPrint);
-        proxyFingerPrint.read();
+        ifingerprintReader = new LdFingerprintReader(this, this);
+        ProxyFingerprintReader proxyFingerprintReader = new ProxyFingerprintReader(ifingerprintReader);
+        proxyFingerprintReader.read();
 
     }
 
@@ -177,8 +171,8 @@ public class FingerprintActivity extends BaseActivity implements IfingerPrintCal
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(ifingerPrint != null){
-            ifingerPrint.close();
+        if(ifingerprintReader != null){
+            ifingerprintReader.close();
         }
     }
 }

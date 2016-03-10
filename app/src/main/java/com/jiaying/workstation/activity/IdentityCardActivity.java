@@ -15,7 +15,7 @@ import com.jiaying.workstation.engine.LdIdReader;
 import com.jiaying.workstation.engine.ProxyIdReader;
 import com.jiaying.workstation.entity.IdentityCard;
 import com.jiaying.workstation.interfaces.IidReader;
-import com.jiaying.workstation.interfaces.OnReadCallback;
+import com.jiaying.workstation.interfaces.OnIdReadCallback;
 import com.jiaying.workstation.utils.CountDownTimerUtil;
 import com.jiaying.workstation.utils.MyLog;
 import com.jiaying.workstation.utils.SetTopView;
@@ -23,7 +23,7 @@ import com.jiaying.workstation.utils.SetTopView;
 /*
 身份证模块
  */
-public class IdentityCardActivity extends BaseActivity implements OnReadCallback {
+public class IdentityCardActivity extends BaseActivity implements OnIdReadCallback {
     private static final String TAG = "IdentityCardActivity";
     private TextView result_txt;
     private TextView state_txt;
@@ -46,7 +46,7 @@ public class IdentityCardActivity extends BaseActivity implements OnReadCallback
         //身份证读取预备
         iidReader = LdIdReader.getInstance(this);
         proxyIdReader = ProxyIdReader.getInstance(iidReader);
-        proxyIdReader.setOnReadCallback(this);
+        proxyIdReader.setOnIdReadCallback(this);
         proxyIdReader.open();
         proxyIdReader.read();
     }

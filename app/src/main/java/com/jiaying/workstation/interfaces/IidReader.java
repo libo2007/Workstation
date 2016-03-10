@@ -7,5 +7,5 @@ public interface IidReader {
     public int open();
     public void read();
     public int close();
-    public void setOnReadCallback(OnReadCallback onReadCallback);
+    public void setOnIdReadCallback(OnIdReadCallback onIdReadCallback);
 }

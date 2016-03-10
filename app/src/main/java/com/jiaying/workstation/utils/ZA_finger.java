@@ -7,6 +7,8 @@
  */
 package com.jiaying.workstation.utils;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -110,19 +112,37 @@ public class ZA_finger {
 	{
 		return IO_Switch(CARD_POWER_PATCH,0);
 	}
-	/**
-	 * 打开指纹模块电源
-	 */
-	public   int  finger_power_on()
-	{
-		return IO_Switch(FINGER_POWER_PATCH,1);
+	public int finger_power_on() {
+		// TODO Auto-generated method stub
+		return fppower(1);
 	}
-	/**
-	 * 关闭指纹模块电源
-	 */
-	public   int  finger_power_off()
-	{
-		return IO_Switch(FINGER_POWER_PATCH,0);
+
+	public int finger_power_off() {
+		// TODO Auto-generated method stub
+		return fppower(0);
+	}
+
+
+	public int fppower(int on) {
+		String fppowerPath = "/sys/zhwpower/zhw_power_finger";
+		try {
+			File fpFile = new File(fppowerPath);
+			if (!fpFile.exists()) {
+				Log.e("fppower", "fppower  " + 1);
+				return 1;
+			}
+
+			BufferedWriter bufWriter = new BufferedWriter(
+					new FileWriter(fpFile));
+			bufWriter.write(Integer.toString(on));
+			bufWriter.close();
+			Log.e("fppower","fppower  " + 1);
+			return 1;
+		} catch (IOException e) {
+			e.printStackTrace();
+			Log.e("fppower","fppower  �쳣  "  );
+		}
+		return 0;
 	}
 
 	/**

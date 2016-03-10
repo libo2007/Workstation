@@ -17,8 +17,9 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.jiaying.workstation.constant.Constants;
-import com.jiaying.workstation.interfaces.IfingerPrint;
-import com.jiaying.workstation.interfaces.IfingerPrintCallback;
+import com.jiaying.workstation.interfaces.IfingerprintReader;
+import com.jiaying.workstation.interfaces.OnFingerprintReadCallback;
+import com.jiaying.workstation.utils.ZA_finger;
 import com.za.android060;
 
 import java.io.DataOutputStream;
@@ -31,10 +32,11 @@ import java.util.Iterator;
  * 邮箱：353510746@qq.com
  * 功能：龙盾指纹识别
  */
-public class LDFingerPrint implements IfingerPrint {
+public class LdFingerprintReader implements IfingerprintReader {
 
-    private IfingerPrintCallback mCallback;
+    private OnFingerprintReadCallback mCallback;
     private Activity mActivity;
+    private ZA_finger za_finger;
     private boolean fpflag = false;
     private boolean fpcharflag = false;
     private boolean fpmatchflag = false;
@@ -58,7 +60,7 @@ public class LDFingerPrint implements IfingerPrint {
     private int defiCom;
     private int defiBaud;
 
-    public LDFingerPrint(IfingerPrintCallback mCallback, Activity mActivity) {
+    public LdFingerprintReader(OnFingerprintReadCallback mCallback, Activity mActivity) {
         this.mCallback = mCallback;
         this.mActivity = mActivity;
         usborcomtype = 0;
@@ -68,6 +70,7 @@ public class LDFingerPrint implements IfingerPrint {
         thread = new HandlerThread("MyHandlerThread");
         thread.start();
         objHandler_fp = new Handler();//
+        za_finger = new ZA_finger();
         openTask();
     }
 
@@ -75,7 +78,7 @@ public class LDFingerPrint implements IfingerPrint {
     private void openTask() {
         // ZA_finger.fppower(1);
         // ZA_finger.cardpower(1);
-
+        za_finger.finger_power_on();
         try {
             thread.sleep(200);
         } catch (InterruptedException e) {
@@ -178,7 +181,7 @@ public class LDFingerPrint implements IfingerPrint {
             if (timecount > Constants.COUNT_DOWN_TIME) {
                 temp = "读指纹等待超时" + "\r\n";
 //                mtvMessage.setText(temp);
-                mCallback.onFingerPrintInfo(null, temp,null);
+                mCallback.onFingerPrintInfo(null, temp, null);
                 return;
             }
             int nRet = 0;
@@ -191,28 +194,28 @@ public class LDFingerPrint implements IfingerPrint {
                 a6.ZAZImgData2BMP(Image, str);
                 temp = "获取图像成功";
 //                mtvMessage.setText(temp);
-                mCallback.onFingerPrintInfo(null, temp,null);
+                mCallback.onFingerPrintInfo(null, temp, null);
                 Bitmap bmpDefaultPic;
                 bmpDefaultPic = BitmapFactory.decodeFile(str, null);
 //                mFingerprintIv.setImageBitmap(bmpDefaultPic);
-                mCallback.onFingerPrintInfo(bmpDefaultPic, null,null);
+                mCallback.onFingerPrintInfo(bmpDefaultPic, null, null);
             } else if (nRet == a6.PS_NO_FINGER) {
                 temp = "正在读取指纹中   剩余时间:" + ((Constants.COUNT_DOWN_TIME - (ssend - ssart))) / 1000 + "s";
 //                mtvMessage.setText(temp);
-                mCallback.onFingerPrintInfo(null, null,temp);
+                mCallback.onFingerPrintInfo(null, null, temp);
                 objHandler_fp.postDelayed(fpTasks, 100);
             } else if (nRet == a6.PS_GET_IMG_ERR) {
                 temp = "获取图像错误";
                 Log.d(TAG, temp + "2: " + nRet);
                 objHandler_fp.postDelayed(fpTasks, 100);
                 //mtvMessage.setText(temp);
-                mCallback.onFingerPrintInfo(null, temp,null);
+                mCallback.onFingerPrintInfo(null, temp, null);
                 return;
             } else {
                 temp = "设备异常";
                 Log.d(TAG, temp + "2: " + nRet);
 //                mtvMessage.setText(temp);
-                mCallback.onFingerPrintInfo(null, temp,null);
+                mCallback.onFingerPrintInfo(null, temp, null);
                 return;
             }
 

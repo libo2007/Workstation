@@ -5,6 +5,6 @@ import com.jiaying.workstation.entity.IdentityCard;
 /**
  * Created by Administrator on 2016/3/9 0009.
  */
-public interface OnReadCallback {
+public interface OnIdReadCallback {
     public void onRead(IdentityCard identityCard);
 }

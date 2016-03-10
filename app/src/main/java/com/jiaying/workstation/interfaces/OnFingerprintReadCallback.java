@@ -9,7 +9,7 @@ import com.jiaying.workstation.entity.IdentityCard;
  * 邮箱：353510746@qq.com
  * 功能：身份证回调
  */
-public interface IfingerPrintCallback {
+public interface OnFingerprintReadCallback {
     /*
     bitmap:指纹，info：提示信息；timeout超时
      */

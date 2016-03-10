@@ -1,7 +1,7 @@
 package com.jiaying.workstation.engine;
 
 import com.jiaying.workstation.interfaces.IidReader;
-import com.jiaying.workstation.interfaces.OnReadCallback;
+import com.jiaying.workstation.interfaces.OnIdReadCallback;
 
 /**
  * Created by Administrator on 2016/3/9 0009.
@@ -21,7 +21,6 @@ public class ProxyIdReader implements IidReader {
         return proxyIdReader;
     }
 
-
     @Override
     public int open() {
         return this.iidReader.open();
@@ -38,7 +37,7 @@ public class ProxyIdReader implements IidReader {
     }
 
     @Override
-    public void setOnReadCallback(OnReadCallback onReadCallback) {
-        this.iidReader.setOnReadCallback(onReadCallback);
+    public void setOnIdReadCallback(OnIdReadCallback onIdReadCallback) {
+        this.iidReader.setOnIdReadCallback(onIdReadCallback);
     }
 }

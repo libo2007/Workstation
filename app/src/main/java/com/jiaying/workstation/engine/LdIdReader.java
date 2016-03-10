@@ -8,14 +8,14 @@ import android.util.Log;
 
 import com.jiaying.workstation.entity.IdentityCard;
 import com.jiaying.workstation.interfaces.IidReader;
-import com.jiaying.workstation.interfaces.OnReadCallback;
+import com.jiaying.workstation.interfaces.OnIdReadCallback;
 import com.jiaying.workstation.utils.LDAPI;
 
 /**
  * Created by Administrator on 2016/3/9 0009.
  */
 public class LdIdReader implements IidReader {
-    private OnReadCallback onReadCallback;
+    private OnIdReadCallback onIdReadCallback;
     long ssart = System.currentTimeMillis();
     long ssend = System.currentTimeMillis();
     long times;
@@ -271,12 +271,12 @@ public class LdIdReader implements IidReader {
             card.setAddr(LDAPI.idcard.address);
             card.setNation(LDAPI.idcard.nation);
             card.setYear(LDAPI.idcard.birthday.substring(0, 4));
-            card.setMouth(LDAPI.idcard.birthday.substring(4, 6));
+            card.setMonth(LDAPI.idcard.birthday.substring(4, 6));
             card.setDay(LDAPI.idcard.birthday.substring(6, 8));
             card.setIdcardno(LDAPI.idcard.idcardno);
             Bitmap bit = ZAZAPI.getPhotoBmp();
             card.setPhotoBmp(ZAZAPI.getPhotoBmp());
-            onReadCallback.onRead(card);
+            onIdReadCallback.onRead(card);
             LDAPI.idcard = LDAPI.idcard;
             if (LDAPI.idcard.fpflag) {
                 if (LDAPI.idcard != null) {
@@ -314,7 +314,7 @@ public class LdIdReader implements IidReader {
     }
 
     @Override
-    public void setOnReadCallback(OnReadCallback onReadCallback) {
-        this.onReadCallback = onReadCallback;
+    public void setOnIdReadCallback(OnIdReadCallback onIdReadCallback) {
+        this.onIdReadCallback = onIdReadCallback;
     }
 }
