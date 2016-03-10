@@ -34,7 +34,7 @@ import java.util.Iterator;
  */
 public class LdFingerprintReader implements IfingerprintReader {
 
-    private OnFingerprintReadCallback mCallback;
+    private OnFingerprintReadCallback onFingerprintReadCallback;
     private Activity mActivity;
     private ZA_finger za_finger;
     private boolean fpflag = false;
@@ -45,7 +45,7 @@ public class LdFingerprintReader implements IfingerprintReader {
     long ssend = System.currentTimeMillis();
     private Handler objHandler_fp;
     private HandlerThread thread;
-
+    private static LdFingerprintReader ldFingerprintReader = null;
 
     android060 a6 = new android060();
     String TAG = "060";
@@ -60,8 +60,7 @@ public class LdFingerprintReader implements IfingerprintReader {
     private int defiCom;
     private int defiBaud;
 
-    public LdFingerprintReader(OnFingerprintReadCallback mCallback, Activity mActivity) {
-        this.mCallback = mCallback;
+    public LdFingerprintReader(Activity mActivity) {
         this.mActivity = mActivity;
         usborcomtype = 0;
         defDeviceType = 2;
@@ -71,11 +70,18 @@ public class LdFingerprintReader implements IfingerprintReader {
         thread.start();
         objHandler_fp = new Handler();//
         za_finger = new ZA_finger();
-        openTask();
     }
-
+    public synchronized static LdFingerprintReader getInstance(Activity activity) {
+        if (ldFingerprintReader == null) {
+            ldFingerprintReader = new LdFingerprintReader(activity);
+        }
+        return ldFingerprintReader;
+    }
     //打开设备
-    private void openTask() {
+
+
+    @Override
+    public int open() {
         // ZA_finger.fppower(1);
         // ZA_finger.cardpower(1);
         za_finger.finger_power_on();
@@ -121,6 +127,7 @@ public class LdFingerprintReader implements IfingerprintReader {
             Toast.makeText(mActivity, "打开设备失败",
                     Toast.LENGTH_SHORT).show();
         }
+        return 0;
     }
 
     @Override
@@ -181,7 +188,7 @@ public class LdFingerprintReader implements IfingerprintReader {
             if (timecount > Constants.COUNT_DOWN_TIME) {
                 temp = "读指纹等待超时" + "\r\n";
 //                mtvMessage.setText(temp);
-                mCallback.onFingerPrintInfo(null, temp, null);
+                onFingerprintReadCallback.onFingerPrintInfo(null, temp, Constants.COUNT_DOWN_TIME + "");
                 return;
             }
             int nRet = 0;
@@ -194,28 +201,28 @@ public class LdFingerprintReader implements IfingerprintReader {
                 a6.ZAZImgData2BMP(Image, str);
                 temp = "获取图像成功";
 //                mtvMessage.setText(temp);
-                mCallback.onFingerPrintInfo(null, temp, null);
+                onFingerprintReadCallback.onFingerPrintInfo(null, temp, null);
                 Bitmap bmpDefaultPic;
                 bmpDefaultPic = BitmapFactory.decodeFile(str, null);
 //                mFingerprintIv.setImageBitmap(bmpDefaultPic);
-                mCallback.onFingerPrintInfo(bmpDefaultPic, null, null);
+                onFingerprintReadCallback.onFingerPrintInfo(bmpDefaultPic, null, null);
             } else if (nRet == a6.PS_NO_FINGER) {
                 temp = "正在读取指纹中   剩余时间:" + ((Constants.COUNT_DOWN_TIME - (ssend - ssart))) / 1000 + "s";
 //                mtvMessage.setText(temp);
-                mCallback.onFingerPrintInfo(null, null, temp);
+                onFingerprintReadCallback.onFingerPrintInfo(null, null, temp);
                 objHandler_fp.postDelayed(fpTasks, 100);
             } else if (nRet == a6.PS_GET_IMG_ERR) {
                 temp = "获取图像错误";
                 Log.d(TAG, temp + "2: " + nRet);
                 objHandler_fp.postDelayed(fpTasks, 100);
                 //mtvMessage.setText(temp);
-                mCallback.onFingerPrintInfo(null, temp, null);
+                onFingerprintReadCallback.onFingerPrintInfo(null, temp, null);
                 return;
             } else {
                 temp = "设备异常";
                 Log.d(TAG, temp + "2: " + nRet);
 //                mtvMessage.setText(temp);
-                mCallback.onFingerPrintInfo(null, temp, null);
+                onFingerprintReadCallback.onFingerPrintInfo(null, temp, null);
                 return;
             }
 
@@ -315,7 +322,7 @@ public class LdFingerprintReader implements IfingerprintReader {
     }
 
     @Override
-    public void close() {
+    public int close() {
         byte[] tmp = {5, 6, 7};
         //a6.ZAZBT_rev(tmp, tmp.length);
         int status = a6.ZAZCloseDeviceEx();
@@ -324,6 +331,12 @@ public class LdFingerprintReader implements IfingerprintReader {
 //        button.setText("打         开");
         //ZA_finger.fppower(0);
         //ZA_finger.cardpower(0);
+        return status;
+    }
+
+    @Override
+    public void setOnFingerprintReadCallback(OnFingerprintReadCallback onFingerprintReadCallback) {
+        this.onFingerprintReadCallback = onFingerprintReadCallback;
     }
 
 }

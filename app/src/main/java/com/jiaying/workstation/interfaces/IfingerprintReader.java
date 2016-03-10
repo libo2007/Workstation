@@ -6,8 +6,8 @@ package com.jiaying.workstation.interfaces;
  * 功能：指纹识别
  */
 public interface IfingerprintReader {
-    //读取指纹
+    public int open();
     public void read();
-    //关闭操作
-    public void close();
+    public int close();
+    public void setOnFingerprintReadCallback(OnFingerprintReadCallback onFingerprintReadCallback);
 }

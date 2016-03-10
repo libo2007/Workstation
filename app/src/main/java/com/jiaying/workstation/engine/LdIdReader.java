@@ -316,5 +316,6 @@ public class LdIdReader implements IidReader {
     @Override
     public void setOnIdReadCallback(OnIdReadCallback onIdReadCallback) {
         this.onIdReadCallback = onIdReadCallback;
+
     }
 }
