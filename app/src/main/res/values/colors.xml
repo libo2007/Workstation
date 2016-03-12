@@ -10,4 +10,5 @@
     <color name="txt_black">#3A3A3A</color>
     <color name="global_bg">#bdbdbd</color>
     <color name="colorGreen">#00cc33</color>
+    <color name="red">#FF0000</color>
 </resources>

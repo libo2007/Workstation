@@ -59,7 +59,7 @@ public class IdentityCardActivity extends BaseActivity implements OnIdReadCallba
 //        state_txt = (TextView) findViewById(R.id.state_txt);
 //        photo_image = (ImageView) findViewById(R.id.photo_image);
         //倒计时开始
-        countDownTimerUtil = new CountDownTimerUtil(result_txt, this);
+        countDownTimerUtil = CountDownTimerUtil.getInstance(result_txt,this);
     }
 
     @Override

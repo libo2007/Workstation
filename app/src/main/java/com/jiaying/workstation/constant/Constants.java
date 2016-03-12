@@ -6,6 +6,8 @@ package com.jiaying.workstation.constant;
  * 功能：常量
  */
 public class Constants {
-    //倒计时时间
+    //倒计时时间20s
     public static  final int COUNT_DOWN_TIME = 20000;
+    //倒计时时间5s
+    public static  final int COUNT_DOWN_TIME_5S = 5000;
 }

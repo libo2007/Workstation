@@ -46,36 +46,24 @@ public class PulpMachineSelectAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         MyHolder holder = null;
-        if(convertView == null){
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.pulp_machine_select_item,null);
+        if (convertView == null) {
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.pulp_machine_select_item, null);
             holder = new MyHolder();
-            holder.select_image = (ImageView) convertView.findViewById(R.id.select_image);
-            holder.id_txt = (TextView) convertView.findViewById(R.id.id_txt);
+            holder.num_txt = (TextView) convertView.findViewById(R.id.num_txt);
             convertView.setTag(holder);
-        }else{
+        } else {
             holder = (MyHolder) convertView.getTag();
         }
-        holder.id_txt.setText(mList.get(position).getNumber());
-       if(mList.get(position).isCheck()){
-           holder.select_image.setImageResource(R.mipmap.xuanzhong_ic);
-       }else{
-           holder.select_image.setImageResource(R.mipmap.xuanzhongno_ic);
-       }
-        holder.select_image.setTag(position);
-        holder.select_image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int poz = (int) v.getTag();
-                boolean checked = mList.get(poz).isCheck();
-                mList.get(poz).setCheck(!checked);
-                notifyDataSetChanged();
-            }
-        });
+        holder.num_txt.setText(mList.get(position).getId());
+        if(mList.get(position).isCheck()){
+            holder.num_txt.setBackgroundColor(mContext.getResources().getColor(R.color.red));
+        }else{
+            holder.num_txt.setBackgroundColor(mContext.getResources().getColor(R.color.white));
+        }
         return convertView;
     }
 
-    private class MyHolder{
-        ImageView select_image;
-        TextView id_txt;
+    private class MyHolder {
+        TextView num_txt;
     }
 }

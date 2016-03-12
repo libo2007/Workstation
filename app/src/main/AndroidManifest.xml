@@ -149,6 +149,11 @@
             android:label="@string/title_activity_physical_exam_result"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".activity.PulpMachineSelectResultActivity"
+            android:label="@string/title_activity_pulp_machine_select_result"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context="com.jiaying.workstation.activity.PulpMachineSelectActivity"
     >
 
@@ -14,6 +15,7 @@
 
         <include layout="@layout/comm_app_title" />
         <TextView
+            android:visibility="gone"
             android:id="@+id/sure_txt"
             android:layout_marginRight="@dimen/btn_padding"
             android:layout_gravity="right|center_vertical"
@@ -21,16 +23,13 @@
             style="@style/txt_white_small_style"/>
     </FrameLayout>
 
-    <GridView
+    <ListView
+        android:background="@color/white"
         android:layout_marginTop="@dimen/btn_margin"
-        android:id="@+id/gridview"
+        android:id="@+id/listview"
+        android:cacheColorHint="@android:color/transparent"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:numColumns="4"
-        android:verticalSpacing="@dimen/btn_margin"
-        android:horizontalSpacing="@dimen/btn_margin"
-        android:stretchMode="columnWidth"
-        android:gravity="center"
         />
 
 </LinearLayout>
