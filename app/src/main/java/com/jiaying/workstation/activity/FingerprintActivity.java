@@ -149,7 +149,8 @@ public class FingerprintActivity extends BaseActivity implements OnFingerprintRe
             int type = getIntent().getIntExtra(IntentExtra.EXTRA_TYPE, 0);
             if (type == TypeConstant.TYPE_REG) {
                 //登记的话就到采集人脸
-                it = new Intent(FingerprintActivity.this, FaceCollectionActivity.class);
+//                it = new Intent(FingerprintActivity.this, FaceCollectionActivity.class);
+                it = new Intent(FingerprintActivity.this,CameraPreviewActivity.class);
             } else if (type == TypeConstant.TYPE_BLOODPLASMACOLLECTION) {
                 //献浆的，去选择浆机
                 it = new Intent(FingerprintActivity.this, PulpMachineSelectActivity.class);
