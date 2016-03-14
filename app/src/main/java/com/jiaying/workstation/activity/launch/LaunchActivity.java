@@ -1,4 +1,4 @@
-package com.jiaying.workstation.activity;
+package com.jiaying.workstation.activity.launch;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.jiaying.workstation.R;
+import com.jiaying.workstation.activity.loginandout.LoginActivity;
 
 /**
  * 启动页面，三秒后跳转到选择护士界面

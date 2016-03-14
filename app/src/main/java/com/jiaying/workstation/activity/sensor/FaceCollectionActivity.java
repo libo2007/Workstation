@@ -1,16 +1,15 @@
-package com.jiaying.workstation.activity;
+package com.jiaying.workstation.activity.sensor;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.Toast;
 
 import com.jiaying.workstation.R;
+import com.jiaying.workstation.activity.BaseActivity;
 import com.jiaying.workstation.utils.SetTopView;
 
 import android.hardware.Camera;

@@ -18,7 +18,6 @@ import android.widget.Toast;
 
 import com.jiaying.workstation.constant.Constants;
 import com.jiaying.workstation.interfaces.IfingerprintReader;
-import com.jiaying.workstation.interfaces.OnFingerprintReadCallback;
 import com.jiaying.workstation.utils.ZA_finger;
 import com.za.android060;
 

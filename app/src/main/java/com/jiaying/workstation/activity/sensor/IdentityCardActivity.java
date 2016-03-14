@@ -1,4 +1,4 @@
-package com.jiaying.workstation.activity;
+package com.jiaying.workstation.activity.sensor;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -9,13 +9,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jiaying.workstation.R;
+import com.jiaying.workstation.activity.BaseActivity;
+import com.jiaying.workstation.activity.search.SearchResultActivity;
 import com.jiaying.workstation.constant.IntentExtra;
 import com.jiaying.workstation.constant.TypeConstant;
 import com.jiaying.workstation.engine.LdIdReader;
 import com.jiaying.workstation.engine.ProxyIdReader;
-import com.jiaying.workstation.entity.IdentityCard;
+import com.jiaying.workstation.entity.IdentityCardEntity;
 import com.jiaying.workstation.interfaces.IidReader;
-import com.jiaying.workstation.interfaces.OnIdReadCallback;
 import com.jiaying.workstation.utils.CountDownTimerUtil;
 import com.jiaying.workstation.utils.MyLog;
 import com.jiaying.workstation.utils.SetTopView;
@@ -23,7 +24,7 @@ import com.jiaying.workstation.utils.SetTopView;
 /*
 身份证模块
  */
-public class IdentityCardActivity extends BaseActivity implements OnIdReadCallback {
+public class IdentityCardActivity extends BaseActivity implements IidReader.OnIdReadCallback {
     private static final String TAG = "IdentityCardActivity";
     private TextView result_txt;
     private TextView state_txt;
@@ -78,20 +79,20 @@ public class IdentityCardActivity extends BaseActivity implements OnIdReadCallba
     }
 
     @Override
-    public void onRead(IdentityCard identityCard) {
+    public void onRead(IdentityCardEntity identityCardEntity) {
         proxyIdReader.close();
-        if (identityCard != null) {
+        if (identityCardEntity != null) {
             IdentityCardActivity.this.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     countDownTimerUtil.cancel();
                 }
             });
-            MyLog.e(TAG, "card info:" + identityCard.toString());
+            MyLog.e(TAG, "card info:" + identityCardEntity.toString());
 
-            donorName = identityCard.getName();
-            avtar = identityCard.getPhotoBmp();
-            idCardNO = identityCard.getIdcardno();
+            donorName = identityCardEntity.getName();
+            avtar = identityCardEntity.getPhotoBmp();
+            idCardNO = identityCardEntity.getIdcardno();
             //认证通过后跳到指纹界面
             new Handler().postDelayed(new runnable(), 10);
 

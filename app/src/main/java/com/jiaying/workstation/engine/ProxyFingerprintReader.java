@@ -1,8 +1,6 @@
 package com.jiaying.workstation.engine;
 
 import com.jiaying.workstation.interfaces.IfingerprintReader;
-import com.jiaying.workstation.interfaces.IidReader;
-import com.jiaying.workstation.interfaces.OnFingerprintReadCallback;
 
 /**
  * 作者：lenovo on 2016/3/4 13:27

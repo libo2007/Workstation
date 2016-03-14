@@ -1,29 +1,25 @@
-package com.jiaying.workstation.activity;
+package com.jiaying.workstation.activity.plasmacollection;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.jiaying.workstation.R;
-import com.jiaying.workstation.adapter.PulpMachineSelectAdapter;
-import com.jiaying.workstation.entity.PulpMachine;
+import com.jiaying.workstation.activity.BaseActivity;
+import com.jiaying.workstation.adapter.PlasmaMachineSelectAdapter;
+import com.jiaying.workstation.entity.PlasmaMachineEntity;
 import com.jiaying.workstation.utils.SetTopView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PulpMachineSelectActivity extends BaseActivity {
+public class SelectPlasmaMachineActivity extends BaseActivity {
     private ListView mListView;
-    private List<PulpMachine> mList;
-    private PulpMachineSelectAdapter mAdapter;
+    private List<PlasmaMachineEntity> mList;
+    private PlasmaMachineSelectAdapter mAdapter;
     private TextView sure_txt;//确定分配
 
     @Override
@@ -41,16 +37,16 @@ public class PulpMachineSelectActivity extends BaseActivity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent it = new Intent(PulpMachineSelectActivity.this,PulpMachineSelectResultActivity.class);
+                Intent it = new Intent(SelectPlasmaMachineActivity.this,SelectPlasmaMachineResultActivity.class);
                 startActivity(it);
             }
         });
-        mList = new ArrayList<PulpMachine>();
-        mAdapter = new PulpMachineSelectAdapter(mList, this);
+        mList = new ArrayList<PlasmaMachineEntity>();
+        mAdapter = new PlasmaMachineSelectAdapter(mList, this);
         mListView.setAdapter(mAdapter);
 
         for (int i = 0; i < 10; i++) {
-            PulpMachine machine = new PulpMachine();
+            PlasmaMachineEntity machine = new PlasmaMachineEntity();
             if (i % 2 == 0) {
                 machine.setCheck(true);
             } else {

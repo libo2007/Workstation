@@ -9,7 +9,7 @@ import java.io.Serializable;
  * 邮箱：353510746@qq.com
  * 功能：省份证实体
  */
-public class IdentityCard implements Serializable {
+public class IdentityCardEntity implements Serializable {
     private String name;
     private String sex;
     private String nation;
@@ -103,7 +103,7 @@ public class IdentityCard implements Serializable {
 
     @Override
     public String toString() {
-        return "IdentityCard{" +
+        return "IdentityCardEntity{" +
                 "name='" + name + '\'' +
                 ", sex='" + sex + '\'' +
                 ", nation='" + nation + '\'' +

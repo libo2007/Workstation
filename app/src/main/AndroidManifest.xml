@@ -41,7 +41,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.LaunchActivity"
+            android:name=".activity.launch.LaunchActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
@@ -58,22 +58,22 @@
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".activity.LoginActivity"
+            android:name=".activity.loginandout.LoginActivity"
             android:label="@string/title_activity_main"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".activity.FingerprintActivity"
+            android:name=".activity.sensor.FingerprintActivity"
             android:label="@string/title_activity_main"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".activity.FaceCollectionActivity"
+            android:name=".activity.sensor.FaceCollectionActivity"
             android:label="@string/title_activity_main"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".activity.IdentityCardActivity"
+            android:name=".activity.sensor.IdentityCardActivity"
             android:label="@string/title_activity_main"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"></activity>
@@ -83,37 +83,37 @@
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".activity.PulpMachineSelectActivity"
+            android:name=".activity.plasmacollection.SelectPlasmaMachineActivity"
             android:label="@string/title_activity_pulp_machine_for_nurse"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".activity.RegisterOverActivity"
+            android:name=".activity.register.RegisterOverActivity"
             android:label="@string/title_activity_pulp_machine_for_nurse"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".activity.PhysicalExamTodoActivity"
+            android:name=".activity.physicalexamination.PhysicalExamTodoActivity"
             android:label="@string/title_activity_physical_todo"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".activity.PhysicalExamActivity"
+            android:name=".activity.physicalexamination.PhysicalExamActivity"
             android:label="@string/title_activity_physical_todo"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".activity.PhysicalExamOverActivity"
+            android:name=".activity.physicalexamination.PhysicalExamOverActivity"
             android:label="@string/title_activity_physical_over"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".activity.PhysicalExamingActivity"
+            android:name=".activity.physicalexamination.PhysicalExamingActivity"
             android:label="@string/title_activity_physical_examing"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".activity.PhysicalExamPassActivity"
+            android:name=".activity.physicalexamination.PhysicalExamPassActivity"
             android:label="@string/title_activity_physical_pass"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"></activity>
@@ -123,35 +123,35 @@
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".activity.SearchResultActivity"
+            android:name=".activity.search.SearchResultActivity"
             android:label="@string/title_activity_serch_result"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".activity.PhysicalExamNotPassActivity"
+            android:name=".activity.physicalexamination.PhysicalExamNotPassActivity"
             android:label="@string/title_activity_physical_exam_not_pass"></activity>
         <activity
-            android:name=".activity.PhysicalExamAskActivity"
+            android:name=".activity.physicalexamination.PhysicalExamAskActivity"
             android:label="@string/title_activity_physical_exam_ask"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".activity.PhysicalExamNoteActivity"
+            android:name=".activity.physicalexamination.PhysicalExamNoteActivity"
             android:label="@string/title_activity_physical_exam_ask"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".activity.PhysicalExamCheckActivity"
+            android:name=".activity.physicalexamination.PhysicalExamCheckActivity"
             android:label="@string/title_activity_physical_exam_ask"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".activity.PhysicalExamResultActivity"
+            android:name=".activity.physicalexamination.PhysicalExamResultActivity"
             android:label="@string/title_activity_physical_exam_result"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".activity.PulpMachineSelectResultActivity"
+            android:name=".activity.plasmacollection.SelectPlasmaMachineResultActivity"
             android:label="@string/title_activity_pulp_machine_select_result"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.NoActionBar"></activity>

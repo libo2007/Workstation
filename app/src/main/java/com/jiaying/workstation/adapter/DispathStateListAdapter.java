@@ -13,10 +13,9 @@ import android.widget.TextView;
 
 import com.jiaying.workstation.R;
 import com.jiaying.workstation.activity.DispatchStateListActivity;
-import com.jiaying.workstation.activity.FingerprintActivity;
+import com.jiaying.workstation.activity.sensor.FingerprintActivity;
 import com.jiaying.workstation.constant.IntentExtra;
 import com.jiaying.workstation.constant.TypeConstant;
-import com.jiaying.workstation.entity.Nurse;
 import com.jiaying.workstation.entity.User;
 import com.jiaying.workstation.utils.MyLog;
 

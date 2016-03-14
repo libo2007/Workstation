@@ -1,18 +1,16 @@
-package com.jiaying.workstation.activity;
+package com.jiaying.workstation.activity.loginandout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.jiaying.workstation.R;
+import com.jiaying.workstation.activity.BaseActivity;
+import com.jiaying.workstation.activity.sensor.FingerprintActivity;
 import com.jiaying.workstation.adapter.NurseAdapter;
-import com.jiaying.workstation.entity.Nurse;
+import com.jiaying.workstation.entity.NurseEntity;
 import com.jiaying.workstation.utils.SetTopView;
 
 import java.util.ArrayList;
@@ -24,7 +22,7 @@ import java.util.List;
 public class LoginActivity extends BaseActivity {
     private GridView mGridView;
     private NurseAdapter mAdapter;
-    private List<Nurse> mList;
+    private List<NurseEntity> mList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +38,7 @@ public class LoginActivity extends BaseActivity {
         setContentView(R.layout.activity_login);
         new SetTopView(this, R.string.title_activity_pulp_machine_for_nurse, false);
         mGridView = (GridView) findViewById(R.id.gridview);
-        mList = new ArrayList<Nurse>();
+        mList = new ArrayList<NurseEntity>();
         mAdapter = new NurseAdapter(mList,this);
         mGridView.setAdapter(mAdapter);
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -52,10 +50,10 @@ public class LoginActivity extends BaseActivity {
             }
         });
         for(int i = 0;i < 30;i++){
-            Nurse nurse = new Nurse();
-            nurse.setName("护士" + i);
-            nurse.setWorkid("1232" + i);
-            mList.add(nurse);
+            NurseEntity nurseEntity = new NurseEntity();
+            nurseEntity.setName("护士" + i);
+            nurseEntity.setWorkid("1232" + i);
+            mList.add(nurseEntity);
         }
         mAdapter.notifyDataSetChanged();
     }

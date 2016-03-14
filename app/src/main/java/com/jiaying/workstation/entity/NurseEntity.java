@@ -7,7 +7,7 @@ import java.io.Serializable;
  * 邮箱：353510746@qq.com
  * 功能：护士信息
  */
-public class Nurse implements Serializable{
+public class NurseEntity implements Serializable{
     private String url;
     private String name;
     private String workid;

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/global_bg"
-    tools:context="com.jiaying.workstation.activity.FingerprintActivity">
+    tools:context=".activity.sensor.FingerprintActivity">
 
     <include layout="@layout/comm_app_title"/>
 
