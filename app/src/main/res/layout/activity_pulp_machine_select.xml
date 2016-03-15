@@ -23,13 +23,18 @@
             style="@style/txt_white_small_style"/>
     </FrameLayout>
 
-    <ListView
-        android:background="@color/white"
+    <GridView
         android:layout_marginTop="@dimen/btn_margin"
-        android:id="@+id/listview"
-        android:cacheColorHint="@android:color/transparent"
+        android:id="@+id/gridview"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:numColumns="3"
+        android:verticalSpacing="@dimen/btn_margin"
+        android:horizontalSpacing="@dimen/btn_margin"
+        android:columnWidth="100dp"
+        android:stretchMode="columnWidth"
+        android:gravity="center"
         />
-
+    <include layout="@layout/copyright_view"/>
 </LinearLayout>

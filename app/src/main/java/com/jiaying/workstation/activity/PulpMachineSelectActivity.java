@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PulpMachineSelectActivity extends BaseActivity {
-    private ListView mListView;
+    private GridView mGridView;
     private List<PulpMachine> mList;
     private PulpMachineSelectAdapter mAdapter;
     private TextView sure_txt;//确定分配
@@ -37,8 +37,8 @@ public class PulpMachineSelectActivity extends BaseActivity {
     public void initView() {
         setContentView(R.layout.activity_pulp_machine_select);
         new SetTopView(this, R.string.title_activity_pulp_machine_select, true);
-        mListView = (ListView) findViewById(R.id.listview);
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mGridView = (GridView) findViewById(R.id.gridview);
+        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent it = new Intent(PulpMachineSelectActivity.this,PulpMachineSelectResultActivity.class);
@@ -47,7 +47,7 @@ public class PulpMachineSelectActivity extends BaseActivity {
         });
         mList = new ArrayList<PulpMachine>();
         mAdapter = new PulpMachineSelectAdapter(mList, this);
-        mListView.setAdapter(mAdapter);
+        mGridView.setAdapter(mAdapter);
 
         for (int i = 0; i < 10; i++) {
             PulpMachine machine = new PulpMachine();
