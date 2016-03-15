@@ -1,5 +1,6 @@
 package com.jiaying.workstation.interfaces;
 
+import android.graphics.Bitmap;
 import android.view.SurfaceHolder;
 
 /**
@@ -12,4 +13,8 @@ public interface IfaceCollector {
     void collect();
     int open();
     void setOnColectCallback(OnFaceCollectCallback onFaceCollectCallback);
+
+     interface OnFaceCollectCallback {
+        public void onCollect(Bitmap btimap);
+    }
 }

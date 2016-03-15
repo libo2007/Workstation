@@ -55,6 +55,7 @@
                 style="@style/btn_style"
                 android:layout_width="0dp"
                 android:layout_weight="1"
+                android:visibility="gone"
                 android:text="@string/flash_off" />
         </LinearLayout>
 

@@ -93,4 +93,5 @@
     <string name="finger_ok">确认</string>
     <string name="finger_again">重采</string>
     <string name="face_collect">调整姿势,录入正面人脸</string>
+    <string name="face_collect_sucess">采集成功</string>
 </resources>

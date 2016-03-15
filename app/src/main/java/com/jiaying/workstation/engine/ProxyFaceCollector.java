@@ -1,9 +1,6 @@
 package com.jiaying.workstation.engine;
 
-import android.view.SurfaceHolder;
-
 import com.jiaying.workstation.interfaces.IfaceCollector;
-import com.jiaying.workstation.interfaces.OnFaceCollectCallback;
 
 /**
  * 作者：lenovo on 2016/3/15 07:21
