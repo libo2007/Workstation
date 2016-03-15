@@ -5,12 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jiaying.workstation.R;
-import com.jiaying.workstation.entity.Nurse;
-import com.jiaying.workstation.entity.PulpMachine;
+import com.jiaying.workstation.entity.PlasmaMachineEntity;
 
 import java.util.List;
 
@@ -19,11 +17,11 @@ import java.util.List;
  * 邮箱：353510746@qq.com
  * 功能：采浆机分配
  */
-public class PulpMachineSelectAdapter extends BaseAdapter {
-    private List<PulpMachine> mList;
+public class PlasmaMachineSelectAdapter extends BaseAdapter {
+    private List<PlasmaMachineEntity> mList;
     private Context mContext;
 
-    public PulpMachineSelectAdapter(List<PulpMachine> mList, Context mContext) {
+    public PlasmaMachineSelectAdapter(List<PlasmaMachineEntity> mList, Context mContext) {
         this.mList = mList;
         this.mContext = mContext;
     }

@@ -1,15 +1,12 @@
-package com.jiaying.workstation.activity;
+package com.jiaying.workstation.activity.plasmacollection;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.TextView;
 
 import com.jiaying.workstation.R;
+import com.jiaying.workstation.activity.BaseActivity;
+import com.jiaying.workstation.activity.DispatchStateListActivity;
 import com.jiaying.workstation.constant.Constants;
 import com.jiaying.workstation.constant.IntentExtra;
 import com.jiaying.workstation.constant.TypeConstant;
@@ -19,7 +16,7 @@ import com.jiaying.workstation.utils.SetTopView;
 import com.jiaying.workstation.utils.ToastUtils;
 
 //浆机分配给浆员的结果
-public class PulpMachineSelectResultActivity extends BaseActivity implements OnCountDownTimerFinishCallback {
+public class SelectPlasmaMachineResultActivity extends BaseActivity implements OnCountDownTimerFinishCallback {
     private CountDownTimerUtil countDownTimerUtil;
     private TextView time_txt;
 
@@ -54,7 +51,7 @@ public class PulpMachineSelectResultActivity extends BaseActivity implements OnC
     @Override
     public void onFinish() {
         ToastUtils.showToast(this, R.string.identify_time_out);
-        Intent it = new Intent(PulpMachineSelectResultActivity.this, DispatchStateListActivity.class);
+        Intent it = new Intent(SelectPlasmaMachineResultActivity.this, DispatchStateListActivity.class);
         it.putExtra(IntentExtra.EXTRA_STATE, TypeConstant.STATE_BLOODPLASMA_COLLECTION_TODO);
         startActivity(it);
         finish();

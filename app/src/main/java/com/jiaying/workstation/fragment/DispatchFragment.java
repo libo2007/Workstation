@@ -4,8 +4,6 @@ package com.jiaying.workstation.fragment;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.renderscript.Type;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +11,6 @@ import android.widget.Button;
 
 import com.jiaying.workstation.R;
 import com.jiaying.workstation.activity.DispatchStateListActivity;
-import com.jiaying.workstation.activity.IdentityCardActivity;
-import com.jiaying.workstation.activity.PhysicalExamNotPassActivity;
-import com.jiaying.workstation.activity.PhysicalExamPassActivity;
-import com.jiaying.workstation.activity.PhysicalExamTodoActivity;
-import com.jiaying.workstation.activity.PhysicalExamingActivity;
-import com.jiaying.workstation.activity.RegisterOverActivity;
 import com.jiaying.workstation.constant.IntentExtra;
 import com.jiaying.workstation.constant.TypeConstant;
 

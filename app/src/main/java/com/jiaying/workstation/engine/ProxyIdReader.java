@@ -1,7 +1,6 @@
 package com.jiaying.workstation.engine;
 
 import com.jiaying.workstation.interfaces.IidReader;
-import com.jiaying.workstation.interfaces.OnIdReadCallback;
 
 /**
  * Created by Administrator on 2016/3/9 0009.

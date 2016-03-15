@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/global_bg"
     android:orientation="vertical"
-    tools:context="com.jiaying.workstation.activity.PhysicalExamResultActivity">
+    tools:context=".activity.physicalexamination.PhysicalExamResultActivity">
 
     <include layout="@layout/comm_app_title" />
 

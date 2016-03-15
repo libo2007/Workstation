@@ -1,4 +1,4 @@
-package com.jiaying.workstation.activity;
+package com.jiaying.workstation.activity.sensor;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -10,13 +10,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jiaying.workstation.R;
+import com.jiaying.workstation.activity.BaseActivity;
+import com.jiaying.workstation.activity.CameraPreviewActivity;
+import com.jiaying.workstation.activity.MainActivity;
+import com.jiaying.workstation.activity.physicalexamination.PhysicalExamActivity;
+import com.jiaying.workstation.activity.physicalexamination.PhysicalExamResultActivity;
+import com.jiaying.workstation.activity.plasmacollection.SelectPlasmaMachineActivity;
 import com.jiaying.workstation.constant.Constants;
 import com.jiaying.workstation.constant.IntentExtra;
 import com.jiaying.workstation.constant.TypeConstant;
 import com.jiaying.workstation.engine.LdFingerprintReader;
 import com.jiaying.workstation.engine.ProxyFingerprintReader;
 import com.jiaying.workstation.interfaces.IfingerprintReader;
-import com.jiaying.workstation.interfaces.OnFingerprintReadCallback;
 import com.jiaying.workstation.utils.MyLog;
 import com.jiaying.workstation.utils.SetTopView;
 import com.jiaying.workstation.utils.ToastUtils;
@@ -24,7 +29,7 @@ import com.jiaying.workstation.utils.ToastUtils;
 /*
 指纹认证模块
  */
-public class FingerprintActivity extends BaseActivity implements OnFingerprintReadCallback {
+public class FingerprintActivity extends BaseActivity implements IfingerprintReader.OnFingerprintReadCallback {
     private static final String TAG = "FingerprintActivity";
     private Handler mHandler = new Handler();
     private Runnable mRunnable = null;
@@ -153,7 +158,7 @@ public class FingerprintActivity extends BaseActivity implements OnFingerprintRe
                 it = new Intent(FingerprintActivity.this,CameraPreviewActivity.class);
             } else if (type == TypeConstant.TYPE_BLOODPLASMACOLLECTION) {
                 //献浆的，去选择浆机
-                it = new Intent(FingerprintActivity.this, PulpMachineSelectActivity.class);
+                it = new Intent(FingerprintActivity.this, SelectPlasmaMachineActivity.class);
             } else if (type == TypeConstant.TYPE_PHYSICAL_EXAM) {
                 //体检，去体检
                 it = new Intent(FingerprintActivity.this, PhysicalExamActivity.class);

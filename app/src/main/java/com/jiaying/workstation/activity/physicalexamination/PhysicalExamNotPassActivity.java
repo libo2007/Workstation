@@ -1,7 +1,8 @@
-package com.jiaying.workstation.activity;
+package com.jiaying.workstation.activity.physicalexamination;
 import android.os.Bundle;
 
 import com.jiaying.workstation.R;
+import com.jiaying.workstation.activity.BaseActivity;
 import com.jiaying.workstation.utils.SetTopView;
 
 /**

@@ -7,7 +7,7 @@ import java.io.Serializable;
  * 邮箱：353510746@qq.com
  * 功能：采浆机实体
  */
-public class PulpMachine implements Serializable {
+public class PlasmaMachineEntity implements Serializable {
     private String id;
     private String number;
     private boolean check;

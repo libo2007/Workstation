@@ -1,17 +1,15 @@
-package com.jiaying.workstation.activity;
+package com.jiaying.workstation.activity.physicalexamination;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 
 import com.jiaying.workstation.R;
+import com.jiaying.workstation.activity.BaseActivity;
 import com.jiaying.workstation.utils.SetTopView;
 
 /**
- * 登记完成
+ * 体检项目_体格检查
  */
-public class RegisterOverActivity extends BaseActivity {
+public class PhysicalExamCheckActivity extends BaseActivity {
     @Override
     public void initVariables() {
 
@@ -19,8 +17,8 @@ public class RegisterOverActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        setContentView(R.layout.activity_register_over);
-        new SetTopView(this,R.string.title_activity_register_over,true);
+        setContentView(R.layout.activity_physical_exam_check);
+        new SetTopView(this,R.string.title_activity_physical_exam_check,true);
     }
 
     @Override

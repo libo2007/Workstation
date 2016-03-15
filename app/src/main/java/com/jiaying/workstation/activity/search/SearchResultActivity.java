@@ -1,10 +1,11 @@
-package com.jiaying.workstation.activity;
+package com.jiaying.workstation.activity.search;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
 import com.jiaying.workstation.R;
+import com.jiaying.workstation.activity.BaseActivity;
 import com.jiaying.workstation.constant.IntentExtra;
 import com.jiaying.workstation.constant.TypeConstant;
 import com.jiaying.workstation.utils.SetTopView;

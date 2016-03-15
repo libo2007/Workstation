@@ -9,9 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jiaying.workstation.R;
-import com.jiaying.workstation.entity.Nurse;
-
-import org.w3c.dom.Text;
+import com.jiaying.workstation.entity.NurseEntity;
 
 import java.util.List;
 
@@ -21,10 +19,10 @@ import java.util.List;
  * 功能：护士列表adapter
  */
 public class NurseAdapter extends BaseAdapter {
-    private List<Nurse> mList;
+    private List<NurseEntity> mList;
     private Context mContext;
 
-    public NurseAdapter(List<Nurse> mList, Context mContext) {
+    public NurseAdapter(List<NurseEntity> mList, Context mContext) {
         this.mList = mList;
         this.mContext = mContext;
     }

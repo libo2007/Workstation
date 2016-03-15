@@ -1,14 +1,15 @@
-package com.jiaying.workstation.activity;
+package com.jiaying.workstation.activity.physicalexamination;
 
 import android.os.Bundle;
 
 import com.jiaying.workstation.R;
+import com.jiaying.workstation.activity.BaseActivity;
 import com.jiaying.workstation.utils.SetTopView;
 
 /**
- * 体检通过的
+ * 体检中
  */
-public class PhysicalExamPassActivity extends BaseActivity {
+public class PhysicalExamOverActivity extends BaseActivity {
     @Override
     public void initVariables() {
 
@@ -16,8 +17,8 @@ public class PhysicalExamPassActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        setContentView(R.layout.activity_physical_exam_pass);
-        new SetTopView(this,R.string.title_activity_physical_pass,true);
+        setContentView(R.layout.activity_physical_exam_over);
+        new SetTopView(this,R.string.title_activity_physical_over,true);
     }
 
     @Override

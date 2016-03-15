@@ -10,9 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.jiaying.workstation.R;
-import com.jiaying.workstation.activity.BloodPlasmaMachineForNurseActivity;
-import com.jiaying.workstation.activity.FingerprintActivity;
-import com.jiaying.workstation.activity.IdentityCardActivity;
+import com.jiaying.workstation.activity.sensor.IdentityCardActivity;
 import com.jiaying.workstation.constant.IntentExtra;
 import com.jiaying.workstation.constant.TypeConstant;
 
