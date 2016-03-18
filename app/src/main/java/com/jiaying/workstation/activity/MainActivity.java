@@ -2,6 +2,8 @@ package com.jiaying.workstation.activity;
 
 import android.app.FragmentManager;
 import android.os.Bundle;
+import android.softfan.dataCenter.DataCenterClientService;
+import android.softfan.dataCenter.config.DataCenterClientConfig;
 import android.widget.RadioGroup;
 
 import com.jiaying.workstation.R;
@@ -18,7 +20,6 @@ public class MainActivity extends BaseActivity {
     private FragmentManager fragmentManager;
 
     private RadioGroup mGroup;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +74,6 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initVariables() {
-
     }
+
 }

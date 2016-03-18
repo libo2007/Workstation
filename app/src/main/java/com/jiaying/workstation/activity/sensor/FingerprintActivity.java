@@ -81,8 +81,8 @@ public class FingerprintActivity extends BaseActivity implements IfingerprintRea
         ifingerprintReader = LdFingerprintReader.getInstance(this);
         proxyFingerprintReader = ProxyFingerprintReader.getInstance(ifingerprintReader);
         proxyFingerprintReader.setOnFingerprintReadCallback(this);
-        proxyFingerprintReader.read();
         proxyFingerprintReader.open();
+        proxyFingerprintReader.read();
     }
 
     @Override

@@ -206,7 +206,8 @@ public class LdFingerprintReader implements IfingerprintReader {
 //                mFingerprintIv.setImageBitmap(bmpDefaultPic);
                 onFingerprintReadCallback.onFingerPrintInfo(bmpDefaultPic, null, null);
             } else if (nRet == a6.PS_NO_FINGER) {
-                temp = "正在读取指纹中   剩余时间:" + ((Constants.COUNT_DOWN_TIME - (ssend - ssart))) / 1000 + "s";
+//                temp = "正在读取指纹中   剩余时间:" + ((Constants.COUNT_DOWN_TIME - (ssend - ssart))) / 1000 + "s";
+                temp = ((Constants.COUNT_DOWN_TIME - (ssend - ssart))) / 1000 + "";
 //                mtvMessage.setText(temp);
                 onFingerprintReadCallback.onFingerPrintInfo(null, null, temp);
                 objHandler_fp.postDelayed(fpTasks, 100);

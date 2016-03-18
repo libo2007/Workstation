@@ -61,6 +61,7 @@ public class IdentityCardActivity extends BaseActivity implements IidReader.OnId
 //        photo_image = (ImageView) findViewById(R.id.photo_image);
         //倒计时开始
         countDownTimerUtil = CountDownTimerUtil.getInstance(result_txt,this);
+        countDownTimerUtil.start();
     }
 
     @Override
@@ -71,11 +72,6 @@ public class IdentityCardActivity extends BaseActivity implements IidReader.OnId
     @Override
     protected void onResume() {
         super.onResume();
-
-
-        countDownTimerUtil.start();
-
-
     }
 
     @Override
