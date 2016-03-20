@@ -15,6 +15,8 @@ import android.softfan.dataCenter.task.IDataCenterNotify;
 import android.softfan.util.textUnit;
 import android.util.Log;
 
+import com.jiaying.workstation.utils.MyLog;
+
 //import com.cylinder.www.env.Signal;
 //import com.cylinder.www.env.net.FilterSignal;
 //import com.cylinder.www.env.net.RecordState;
@@ -25,7 +27,7 @@ import android.util.Log;
  */
 // Consider using AsyncTask or HandlerThread
 public class ObservableZXDCSignalListenerThread extends Thread implements IDataCenterNotify, IDataCenterProcess {
-
+	private static final String TAG = "ObservableZXDCSignalListenerThread";
 	private ObservableHint observableHint;
 
 	public Boolean getIsContinue() {
@@ -33,7 +35,8 @@ public class ObservableZXDCSignalListenerThread extends Thread implements IDataC
 	}
 
 	private Boolean isContinue = true;
-
+	private String ap = "libo";
+	private String org = "jiaying";
 //	private RecordState recordState;
 //	private RecoverState recoverState;
 //	private FilterSignal filterSignal;
@@ -80,14 +83,14 @@ public ObservableZXDCSignalListenerThread() {
 
 		// there must be a pause if without there will be something wrong.
 //		recoverState.recover(recordState, observableHint);
-
-		clientService = DataCenterClientService.get("libo", "*");
+		MyLog.e(TAG,TAG + " is run");
+		clientService = DataCenterClientService.get(ap, org);
 		if (clientService == null) {
 			DataCenterClientConfig config = new DataCenterClientConfig();
-			config.setAddr("222.209.30.140");
+			config.setAddr("jiaying.picp.net");
 			config.setPort(30014);
-			config.setAp("libo");
-			config.setOrg("jiayin");
+			config.setAp(ap);
+			config.setOrg(org);
 			config.setPassword("123456");
 			config.setServerAp("JzDataCenter");
 			config.setServerOrg("*");
@@ -96,7 +99,11 @@ public ObservableZXDCSignalListenerThread() {
 
 			DataCenterClientService.startup(config);
 
-			clientService = DataCenterClientService.get("libo", "*");
+			clientService = DataCenterClientService.get(ap, org);
+
+			if(clientService == null){
+				MyLog.e(TAG,"clientService == null");
+			}
 		}
 
 		while (isContinue) {
