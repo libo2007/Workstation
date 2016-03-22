@@ -22,6 +22,7 @@ import com.jiaying.workstation.constant.TypeConstant;
 import com.jiaying.workstation.engine.LdFingerprintReader;
 import com.jiaying.workstation.engine.ProxyFingerprintReader;
 import com.jiaying.workstation.interfaces.IfingerprintReader;
+import com.jiaying.workstation.utils.CountDownTimerUtil;
 import com.jiaying.workstation.utils.MyLog;
 import com.jiaying.workstation.utils.SetTopView;
 import com.jiaying.workstation.utils.ToastUtils;
@@ -50,7 +51,7 @@ public class FingerprintActivity extends BaseActivity implements IfingerprintRea
     private String idCardNO = null;
     private int source;
 
-
+    private CountDownTimerUtil countDownTimerUtil;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,9 +94,9 @@ public class FingerprintActivity extends BaseActivity implements IfingerprintRea
         result_txt = (TextView) findViewById(R.id.result_txt);
         state_txt = (TextView) findViewById(R.id.state_txt);
         photo_image = (ImageView) findViewById(R.id.photo_image);
-        //倒计时开始
-//        countDownTimerUtil = new CountDownTimerUtil(result_txt, this);
-//        countDownTimerUtil.start();
+        //开始倒计时
+        countDownTimerUtil = CountDownTimerUtil.getInstance(result_txt, this);
+        countDownTimerUtil.start();
 
 
         switch (source) {
@@ -118,13 +119,35 @@ public class FingerprintActivity extends BaseActivity implements IfingerprintRea
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
 
     @Override
-    public void onFingerPrintInfo(Bitmap bitmap, String info, String timeout) {
+    protected void onRestart() {
+        super.onRestart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
+    public void onFingerPrintInfo(final Bitmap bitmap) {
         //指纹识别结果
         if (bitmap != null) {
 //            countDownTimerUtil.cancel();
-            photo_image.setImageBitmap(bitmap);
+            FingerprintActivity.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    countDownTimerUtil.cancel();
+                    photo_image.setImageBitmap(bitmap);
+                }
+            });
+
 
             //认证通过后跳到
             mRunnable = new runnable();
@@ -132,18 +155,18 @@ public class FingerprintActivity extends BaseActivity implements IfingerprintRea
         } else {
             MyLog.e(TAG, "finger print is null");
         }
-        if (!TextUtils.isEmpty(info)) {
-            state_txt.setText(info);
-        }
-        if (!TextUtils.isEmpty(timeout)) {
-            if (timeout.equals(Constants.COUNT_DOWN_TIME + "")) {
-                ToastUtils.showToast(this, R.string.identify_time_out);
-                finish();
-            } else {
-                result_txt.setText(timeout);
-            }
-
-        }
+//        if (!TextUtils.isEmpty(info)) {
+//            state_txt.setText(info);
+//        }
+//        if (!TextUtils.isEmpty(timeout)) {
+//            if (timeout.equals(Constants.COUNT_DOWN_TIME + "")) {
+//                ToastUtils.showToast(this, R.string.identify_time_out);
+//                finish();
+//            } else {
+//                result_txt.setText(timeout);
+//            }
+//
+//        }
 
     }
 
@@ -155,7 +178,7 @@ public class FingerprintActivity extends BaseActivity implements IfingerprintRea
             if (type == TypeConstant.TYPE_REG) {
                 //登记的话就到采集人脸
 //                it = new Intent(FingerprintActivity.this, FaceCollectionActivity.class);
-                it = new Intent(FingerprintActivity.this,CameraPreviewActivity.class);
+                it = new Intent(FingerprintActivity.this, CameraPreviewActivity.class);
             } else if (type == TypeConstant.TYPE_BLOODPLASMACOLLECTION) {
                 //献浆的，去选择浆机
                 it = new Intent(FingerprintActivity.this, SelectPlasmaMachineActivity.class);
@@ -191,9 +214,18 @@ public class FingerprintActivity extends BaseActivity implements IfingerprintRea
     }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
 //        closeFingerReader();
+        if (countDownTimerUtil != null) {
+            countDownTimerUtil.cancel();
+            countDownTimerUtil = null;
+        }
     }
 
     private void closeFingerReader() {

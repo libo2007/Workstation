@@ -67,9 +67,10 @@ public class LdFingerprintReader implements IfingerprintReader {
         defiBaud = 12;
         thread = new HandlerThread("MyHandlerThread");
         thread.start();
-        objHandler_fp = new Handler();//
+        objHandler_fp = new Handler(thread.getLooper());//
         za_finger = new ZA_finger();
     }
+
     public synchronized static LdFingerprintReader getInstance(Activity activity) {
         if (ldFingerprintReader == null) {
             ldFingerprintReader = new LdFingerprintReader(activity);
@@ -187,7 +188,7 @@ public class LdFingerprintReader implements IfingerprintReader {
             if (timecount > Constants.COUNT_DOWN_TIME) {
                 temp = "读指纹等待超时" + "\r\n";
 //                mtvMessage.setText(temp);
-                onFingerprintReadCallback.onFingerPrintInfo(null, temp, Constants.COUNT_DOWN_TIME + "");
+                onFingerprintReadCallback.onFingerPrintInfo(null);
                 return;
             }
             int nRet = 0;
@@ -200,29 +201,29 @@ public class LdFingerprintReader implements IfingerprintReader {
                 a6.ZAZImgData2BMP(Image, str);
                 temp = "获取图像成功";
 //                mtvMessage.setText(temp);
-                onFingerprintReadCallback.onFingerPrintInfo(null, temp, null);
+                onFingerprintReadCallback.onFingerPrintInfo(null);
                 Bitmap bmpDefaultPic;
                 bmpDefaultPic = BitmapFactory.decodeFile(str, null);
 //                mFingerprintIv.setImageBitmap(bmpDefaultPic);
-                onFingerprintReadCallback.onFingerPrintInfo(bmpDefaultPic, null, null);
+                onFingerprintReadCallback.onFingerPrintInfo(bmpDefaultPic);
             } else if (nRet == a6.PS_NO_FINGER) {
 //                temp = "正在读取指纹中   剩余时间:" + ((Constants.COUNT_DOWN_TIME - (ssend - ssart))) / 1000 + "s";
                 temp = ((Constants.COUNT_DOWN_TIME - (ssend - ssart))) / 1000 + "";
 //                mtvMessage.setText(temp);
-                onFingerprintReadCallback.onFingerPrintInfo(null, null, temp);
+                onFingerprintReadCallback.onFingerPrintInfo(null);
                 objHandler_fp.postDelayed(fpTasks, 100);
             } else if (nRet == a6.PS_GET_IMG_ERR) {
                 temp = "获取图像错误";
                 Log.d(TAG, temp + "2: " + nRet);
                 objHandler_fp.postDelayed(fpTasks, 100);
                 //mtvMessage.setText(temp);
-                onFingerprintReadCallback.onFingerPrintInfo(null, temp, null);
+                onFingerprintReadCallback.onFingerPrintInfo(null);
                 return;
             } else {
                 temp = "设备异常";
                 Log.d(TAG, temp + "2: " + nRet);
 //                mtvMessage.setText(temp);
-                onFingerprintReadCallback.onFingerPrintInfo(null, temp, null);
+                onFingerprintReadCallback.onFingerPrintInfo(null);
                 return;
             }
 

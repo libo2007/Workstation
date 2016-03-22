@@ -67,25 +67,25 @@ public class SelectPlasmaMachineResultActivity extends BaseActivity implements O
     }
 
     //将浆员信息发送到服务器
-    private void sendToTcpIpServer(){
+    private void sendToTcpIpServer() {
         DataCenterClientService clientService = ObservableZXDCSignalListenerThread.getClientService();
-       if(clientService != null){
-           DataCenterTaskCmd retcmd = new DataCenterTaskCmd();
+        if (clientService != null) {
+            DataCenterTaskCmd retcmd = new DataCenterTaskCmd();
+
 //       retcmd.setSelfNotify(this);
-           retcmd.setCmd("faceRecognition");
-           retcmd.setHasResponse(true);
-           retcmd.setLevel(2);
-           HashMap<String, Object> values = new HashMap<String, Object>();
-           values.put("face", "face");
-           values.put("face_w", "face_w");
-           values.put("face_h", "face_h");
-           values.put("faceType", "faceType");
-           values.put("date", new Date(System.currentTimeMillis()));
-           retcmd.setValues(values);
-           clientService.getApDataCenter().addSendCmd(retcmd);
-       }else{
-           MyLog.e(TAG,"clientService==null");
-       }
+            retcmd.setCmd("startCollection");
+            retcmd.setHasResponse(true);
+            retcmd.setLevel(2);
+            HashMap<String, Object> values = new HashMap<String, Object>();
+            values.put("donorId", "123");
+            values.put("machineId", "123");
+            values.put("donorAvatar", "214354");
+
+            retcmd.setValues(values);
+            clientService.getApDataCenter().addSendCmd(retcmd);
+        } else {
+            MyLog.e(TAG, "clientService==null");
+        }
 
     }
 }

@@ -81,7 +81,9 @@ public class FaceCollector implements IfaceCollector {
             switch (msg.what) {
                 //前count-1次继续采集
                 case CONTINUE: {
-                    camera.autoFocus(fpGetAfCallback);
+                   if(camera != null){
+                       camera.autoFocus(fpGetAfCallback);
+                   }
                     break;
                 }
 

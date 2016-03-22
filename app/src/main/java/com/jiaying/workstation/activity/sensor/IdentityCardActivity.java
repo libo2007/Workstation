@@ -40,15 +40,23 @@ public class IdentityCardActivity extends BaseActivity implements IidReader.OnId
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
     public void initVariables() {
-        //身份证读取预备
+        //  身份证读取预备
         iidReader = LdIdReader.getInstance(this);
         proxyIdReader = ProxyIdReader.getInstance(iidReader);
+
+        //  指纹读卡器读取到身份证后才会调用该回调函数
         proxyIdReader.setOnIdReadCallback(this);
+
+        //  打开身份证读卡器
         proxyIdReader.open();
+        //// TODO: 2016/3/22  对上电失败要报警
+
+        //开始尝试读取身份证信息
         proxyIdReader.read();
     }
 
@@ -57,10 +65,9 @@ public class IdentityCardActivity extends BaseActivity implements IidReader.OnId
         setContentView(R.layout.activity_identity_card);
         new SetTopView(this, R.string.title_activity_identity, true);
         result_txt = (TextView) findViewById(R.id.result_txt);
-//        state_txt = (TextView) findViewById(R.id.state_txt);
-//        photo_image = (ImageView) findViewById(R.id.photo_image);
-        //倒计时开始
-        countDownTimerUtil = CountDownTimerUtil.getInstance(result_txt,this);
+
+        //开始倒计时
+        countDownTimerUtil = CountDownTimerUtil.getInstance(result_txt, this);
         countDownTimerUtil.start();
     }
 
@@ -122,7 +129,11 @@ public class IdentityCardActivity extends BaseActivity implements IidReader.OnId
     @Override
     protected void onPause() {
         super.onPause();
-        iidReader.close();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
     }
 
     @Override
