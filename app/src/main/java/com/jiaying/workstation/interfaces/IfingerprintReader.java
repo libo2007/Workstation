@@ -20,7 +20,7 @@ public interface IfingerprintReader {
      */
     interface OnFingerprintReadCallback {
         /*
-        bitmap:指纹，info：提示信息；timeout超时
+        bitmap:为null时表示读取异常
          */
         public void onFingerPrintInfo(Bitmap bitmap, String info, String timeout);
     }

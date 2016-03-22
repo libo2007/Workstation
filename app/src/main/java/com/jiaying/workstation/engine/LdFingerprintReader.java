@@ -70,6 +70,7 @@ public class LdFingerprintReader implements IfingerprintReader {
         objHandler_fp = new Handler();//
         za_finger = new ZA_finger();
     }
+
     public synchronized static LdFingerprintReader getInstance(Activity activity) {
         if (ldFingerprintReader == null) {
             ldFingerprintReader = new LdFingerprintReader(activity);

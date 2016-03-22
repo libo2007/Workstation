@@ -118,6 +118,21 @@ public class FingerprintActivity extends BaseActivity implements IfingerprintRea
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
 
     @Override
     public void onFingerPrintInfo(Bitmap bitmap, String info, String timeout) {
@@ -155,7 +170,7 @@ public class FingerprintActivity extends BaseActivity implements IfingerprintRea
             if (type == TypeConstant.TYPE_REG) {
                 //登记的话就到采集人脸
 //                it = new Intent(FingerprintActivity.this, FaceCollectionActivity.class);
-                it = new Intent(FingerprintActivity.this,CameraPreviewActivity.class);
+                it = new Intent(FingerprintActivity.this, CameraPreviewActivity.class);
             } else if (type == TypeConstant.TYPE_BLOODPLASMACOLLECTION) {
                 //献浆的，去选择浆机
                 it = new Intent(FingerprintActivity.this, SelectPlasmaMachineActivity.class);
@@ -188,6 +203,11 @@ public class FingerprintActivity extends BaseActivity implements IfingerprintRea
     protected void onPause() {
         super.onPause();
 //        closeFingerReader();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
     }
 
     @Override
