@@ -91,5 +91,6 @@
     <orderEntry type="library" exported="" name="design-23.1.1" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-23.1.1" level="project" />
     <orderEntry type="library" exported="" name="ZAZLIB" level="project" />
+    <orderEntry type="library" exported="" name="softfanNet" level="project" />
   </component>
 </module>
