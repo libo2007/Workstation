@@ -168,7 +168,7 @@ public class LdIdReader implements IidReader {
 
             }
 
-            cardHandler.postDelayed(cardTasks, 500);
+            cardHandler.postDelayed(cardTasks, 10);
 
         }
 
